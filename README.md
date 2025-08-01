@@ -91,5 +91,11 @@
 * Bir yazılımcının sadece kod yazmaktan çok daha fazlasını bilmesi gerektiği bu anlatılan adımlardan aşikardır. Bir yazılımcı bu süreçte proje maliyeti hesaplama, kullanıcı isteklerini öğrenme, dil hakimiyeti ve hangi durumda hangi dilin kullanılması gerektiği hakkında tecrübe vb. çeşitli kabiliyetlere ihtiyaç duyar. Yazılım geliştirme sürecinde her aşamada yazılımcının rolü çok büyüktür.
 </details>
 
+## 2. .NET Ekosistemi
 
+<details>
+<summary>.NET Nedir? Tarihçesi, amacı, neden kullanılır?</summary>
+
+* test
+</details>
 
