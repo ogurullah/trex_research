@@ -34,8 +34,11 @@
 * **push**: Sunucuya yüklenmek üzere paketlenmiş yerel veritabanındaki bütün değişiklikleri sunucuya gönderir.
     * `git push` 'README.md' dosyasını GitHub'a yükledim.
 * **fetch**: Sunucudaki versiyon ile yerel veritabanındaki versiyonu kıyaslar, sunucudaki güncelse değişiklikleri alır.
-    * `git fetch`
-  
+    * `git fetch` Sunucudaki 'README.md' ile yerel aynı.
+* **merge**: 'fetch' ile aldığı değişiklikleri yerel dosyalarla birleştirir.
+    * `git merge` Already up to date.
+* **pull**: 'fetch' ve sonrasında 'merge' uygular.
+    * `git pull` Already up to date.
 </details>
 
 
