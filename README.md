@@ -103,7 +103,7 @@
 
 | .NET Framework   | .NET Core | .NET 7/8+  |
 |:-----------------|:---------:|-----------:|
-| A                | B         | C          |
+|Yalnızca Windows'ta çalışır|Çoklu platformu destekler(Linux,Windows,Mac vb.)| C          |
 | D                | E         | F          |
 
 </details>
