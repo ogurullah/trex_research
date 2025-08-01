@@ -79,7 +79,8 @@
 <summary>Software Development Life Cycle (SDLC)</summary>
 
 * Yazılım geliştirme sürecinin aşamaları, kaynaktan kaynağa değişmekle birlikte 6-7 adımdan oluşur.
-    * 1. Adım: Planlama: Projenin büyüklüğü, kapsamlılığı, karmaşıklığı, içeriği, gereksinimleri, hedefleri ve özellikle neye ihtiyacının *olmadığı* bu aşamada belirlenir. Feat
+    * 1.) Adım: Planlama: Projenin büyüklüğü, kapsamlılığı, karmaşıklığı, içeriği, gereksinimleri, hedefleri ve özellikle neye ihtiyacının *olmadığı* bu aşamada belirlenir.
+      2.) İlerleyen zamanlarda 'feature-creep' yaşamamak için projenin çapı daha ilk aşamadan belirlenmelidir. 
 </details>
 
 
