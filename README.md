@@ -64,14 +64,16 @@
 * CI/CD pipeline dediğimiz şey basitçe bir yazılımcı ortak branch'e bir kod yüklediği zaman kodun otomatik şekilde yayımlanana kadar geçtiği adımlardır. Ortak branch'e bir kod yüklendiğinde, bu kodu önceden belirlenmiş testlere otomatik bir şekilde sokup, daha sonra projeyi otomatik bir şekilde build'leyip, süreç içerisinde herhangi bir sorun çıkmazsa da otomatik bir şekilde yayımlanmasına yarar. Çıkan bir sorunda da işlem durur ve ilgili yazılımcıya bildirim gider.
 * Ortak branch'e her güncelleme geldiği zaman manuel bir şekilde kodları birleştirip test etmek ve yayımlamak insan hatalarına izin veren, yavaş ve verimsiz bir yöntem olduğu için pipeline çok kullanışlıdır.
 * Basit bir GitHub Actions pipeline örneği: `.github/workflows/hello-world.yml`
-    * <pre>```yaml name: Basit Pipeline
+    * <pre> name: Basit Pipeline
         on: [push]
         jobs:
           hello-job:
             runs-on: ubuntu-latest
             steps:
               - name: Merhaba Dünya Yaz
-                run: echo "Merhaba, dünya!"```</pre>
+                run: echo "Merhaba, dünya!"</pre>
+    * Bu oldukça basit bir pipeline örneğidir. Tanımda anlatıldığı gibi otomatik test yapma ve program deploy'lama işlevi yok ancak yeni kod geldiğinde "Merhaba dünya!" yazıyor.
+    * test
 
 </details>
 
