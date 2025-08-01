@@ -51,7 +51,7 @@
 <details>
 <summary>Merge conflict nedir, nasıl çözülür?</summary>
 
-* Merge conflict, iki branch'ın 'merge'lenirken bir dosyanın aynı yerinde farklı değişiklikler yapmış olmalarından kaynaklanan 'merge'lenememe durumudur. Git, aynı yerde birbirinden farklı iki değişikliği nasıl ele alması gerektiğini bilemez ve hata verir. Dosyada çakışan bölge(ler),
+* Merge conflict, iki branch'ın 'merge'lenirken bir dosyanın aynı yerinde farklı değişiklikler yapılmış olmasından kaynaklanan 'merge'lenememe durumudur. Git, aynı yerde birbirinden farklı iki değişikliği nasıl ele alması gerektiğini bilemez ve hata verir. Dosyada çakışan bölge(ler),
     * `<<<<<<<HEAD` ve `=======`
 * arasında gösterilir. Bu kısımda hangi versiyonun kabul edileceği yazılımcı tarafından manuel şekilde belirlenir ve ancak böyle 'merge' işlemi gerçekleşebilir.
 </details>
@@ -96,6 +96,8 @@
 <details>
 <summary>.NET Nedir? Tarihçesi, amacı, neden kullanılır?</summary>
 
-* test
+* *.NET Tarihçesi*:
+    * 90'ların sonunda Microsoft .NET platformunun ilk adımlarını attı. 2000 yılında C# yazılım dili duyuruldu. .NET Framework ve C#, .NET platformunu oluşturdu. 2014 yılında Microsoft, .NET Core'u duyurdu. .NET Framework'ün aksine açık kaynak kodlu, platformlar arası çalışabilen .NET Core ile beraber Microsoft, geçmiş kütüphaneleri de açık kaynak kodluya çevirdi. Bu platformun gelecekteki bütün .NET platformlarının temeli olacağı öne sürüldü. 2016'da .NET Core 1.0 ve Visual Studio Update 3 çıktı ve .NET Core'da yazılım geliştirme başladı. 2017'de .NET Core 2.0, Visual Studio 2017 15.3, ASP.NET Core 2.0 ve Entity Framework Core 2.0 çıktı. 2018'de önce .NET Core 2.1 ve Aralık ayında .NET Core 2.2 çıktı. 2019'da .NET Core 3 çıktı. .NET Core 3, Windows masaüstü uygulaması geliştirmeye olanak sağlıyordu ayrıca olağanüstü performans geliştirmeleri ve ek kütüphanelerle geliyordu. 2020'de .NET 5.0 çıktı. İsimden 'core' ibaresi kaldırıldı ve 4.0 versiyon sayısı atlandı. 2021'de .NET 6.0, 2022'de .NET 7.0, 2023'te .NET 8.0 ve 2024'te son versiyon olan .NET 9.0 çıktı.
+    * Büyük versiyon geçişleri geçmiş API'ları bozuyorken küçük güncellemeler hata düzeltmeleri, ek kütüphaneler ve performans geliştirmelerinden oluşuyordu.
 </details>
 
