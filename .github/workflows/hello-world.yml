@@ -1,0 +1,10 @@
+name: Basit Pipeline
+
+on: [push]
+
+jobs:
+  hello-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Merhaba Dünya Yaz
+        run: echo "Merhaba, dünya!"
