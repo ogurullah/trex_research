@@ -11,5 +11,19 @@
     * Örnek bir SHA-1 hash string'i:
       `24b9da6552252987aa493b52f8696cd6d3b00373`
     * GitHub bir Git sunucusudur. Git ile depolanmış kodların host'lanabildiği bir uzak bilgisayar, bir nevi buluttur. GitLab, Gitea, Bitbucket, Gogs gibi farklı Git sunucuları da mevcuttur. Şu anda yazılımcılar arasında en popüler olanı GitHub'dır.
+ 
+<details>
+<summary>🔽 Click to expand section</summary>
+
+### This is a hidden heading
+
+Here’s some content that is hidden by default.
+
+- item 1  
+- item 2  
+- etc.
+
+</details>
+
 
 
