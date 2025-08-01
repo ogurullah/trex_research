@@ -72,8 +72,7 @@
             steps:
               - name: Merhaba Dünya Yaz
                 run: echo "Merhaba, dünya!"</pre>
-    * Bu oldukça basit bir pipeline örneğidir. Tanımda anlatıldığı gibi otomatik test yapma ve program deploy'lama işlevi yok ancak yeni kod geldiğinde "Merhaba dünya!" yazıyor.
-    * test
+    * Bu oldukça basit bir pipeline örneğidir. Tanımda anlatıldığı gibi otomatik test uygulama ve program deploy'lama işlevi yok ancak yeni kod geldiğinde GitHub'da repository'nin içindeki Actions terminalinde "Merhaba dünya!" yazıyor.
 
 </details>
 
