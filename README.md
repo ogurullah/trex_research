@@ -73,6 +73,7 @@
               - name: Merhaba Dünya Yaz
                 run: echo "Merhaba, dünya!"</pre>
     * Bu oldukça basit bir pipeline örneğidir. Tanımda anlatıldığı gibi otomatik test uygulama ve program deploy'lama işlevi yok ancak yeni kod geldiğinde GitHub'da repository'nin içindeki Actions terminalinde "Merhaba dünya!" yazıyor.
+    * CI/CD kavramı bir .NET projesinde tıpkı diğer alanlarda kullanıldığı gibi kullanılabilir. Projeye yapılan katkılar otomatik testlerden geçip otomatik build'lenerek yine otomatik bir şekilde deploy'lanabilir.
 </details>
 
 <details>
@@ -87,6 +88,7 @@
     * **5.) Adım: Testler**: Bu aşamada yazılmış olan kodların ekstrem noktaları, güvenlik açıkları, entegrasyonları, fonksiyonları, hepsi tek tek test edilir. Bu aşamadan önce hiç test uygulanmadığı düşünülmesin, bu aşamaya kadar küçük testler hep uygulanır ancak bu aşamada her şeyin kapsamlı testleri yazılır ve olabildiğince bug'sız bir program oluşturulmaya çalışılır.
     * **6.) Adım: Yayımlama**: Bu aşamada program adım adım yayımlanmaya başlar. Önce 'beta' diye adlandırılan, programın sınırla sayıda kullanıcıya ulaştırıldığı bir aşamaya girilir ve programın genel kullanıcı kullandığında nasıl bir deneyim sunduğu gözlemlenir. Gözden kaçmış pürüzler bu aşamada toparlanır ve ardından program yayımlanır.
     * **7.) Adım: Bakım**: Artık programın zaman içerisinde tespit edilememiş, mümkün olduğunca az, bug'ları ortaya çıkmaya başlar. Onları düzeltmek, programı değişen ihtiyaçlara göre güncellemek, destek vermek, bu aşamanın işidir. DevOps (development-IT operation) takımları bu aşamada CI/CD kullanarak programı günceller ve düzeltir.
+* Bir yazılımcının sadece kod yazmaktan çok daha fazlasını bilmesi gerektiği bu anlatılan adımlardan aşikardır. Bir yazılımcı bu süreçte proje maliyeti hesaplama, kullanıcı isteklerini öğrenme, dil hakimiyeti ve hangi durumda hangi dilin kullanılması gerektiği hakkında tecrübe vb. türlü türlü yetilere ihtiyaç duyar. Her aşamada yazılımcının rolü çok büyüktür.
 </details>
 
 
