@@ -1,6 +1,6 @@
 # trex_research
 ***
-### *Programlama hakkında öğretici ve temel bir araştırma raporu.*
+##### *Programlama hakkında öğretici ve temel bir araştırma raporu.*
 ***
 
 ## 1. Modern Yazılım Geliştirme Pratikleri
