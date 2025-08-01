@@ -73,7 +73,13 @@
               - name: Merhaba Dünya Yaz
                 run: echo "Merhaba, dünya!"</pre>
     * Bu oldukça basit bir pipeline örneğidir. Tanımda anlatıldığı gibi otomatik test uygulama ve program deploy'lama işlevi yok ancak yeni kod geldiğinde GitHub'da repository'nin içindeki Actions terminalinde "Merhaba dünya!" yazıyor.
+</details>
 
+<details>
+<summary>Software Development Life Cycle (SDLC)</summary>
+
+* Yazılım geliştirme sürecinin aşamaları, kaynaktan kaynağa değişmekle birlikte 6-7 adımdan oluşur.
+    * 1. Adım: Planlama: Projenin büyüklüğü, kapsamlılığı, karmaşıklığı, içeriği, gereksinimleri, hedefleri ve özellikle neye ihtiyacının *olmadığı* bu aşamada belirlenir. Feat
 </details>
 
 
