@@ -39,6 +39,13 @@
     * `git merge` Already up to date.
 * **pull**: 'fetch' ve sonrasında 'merge' uygular.
     * `git pull` Already up to date.
+* **branch**: Var olan versiyonun birbiriyle çakışmayan bir klonunu üretir. Bir nevi paralel evren gibi çalışır. Başka branch'taki değişiklikler ana branch'i etkilemez.
+    * `git branch test` 'test' adında bir branch oluşturur.
+    * `git branch` '* main' ve 'test' olmak üzere iki branch görünüyor. '* main' şu anda main branch'teyiz demek.
+* **checkout**: branch'lar arası geçiş yapmayı sağlar.
+    * `git checkout test` main branch'tan çıkar ve test adındaki branch'a girer.
+    * `git branch` 'main' ve '* test' olmak üzere iki branch görünüyor. Şu anda test'teyiz.
+    * Burada yapacağımız bütün 'add', 'commit', 'push' işlemleri test branch'ı içerisinde olacak.
 </details>
 
 
