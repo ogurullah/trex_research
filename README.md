@@ -19,19 +19,19 @@
 <details>
 <summary>Temel Git komutları: init, clone, add, commit, push, pull, branch, merge</summary>
 
-* init: Boş bir Git repository'si oluşturur. Repository Git'in üzerinde versiyon kontrolü yapacağı klasörlere verilen addır.
+* **init**: Boş bir Git repository'si oluşturur. Repository Git'in üzerinde versiyon kontrolü yapacağı klasörlere verilen addır.
     * `cd Desktop` Masaüstüne gittim.
     * `mkdir trex_research` 'trex_research' adlı bir klasör oluşturdum.
     * `git init` 'trex_research' adında bir Git repository'si oluşturdum.
     * `ls` Şu anda klasör boş.
 * README.md dosyasını manuel bir şekilde oluşturdum. Markdown dosyasını JupyterLab kullanarak düzenledim.
-* add: Modified stage'de olan bir dosyayı, staged olmak üzere, gelecek commit'e ekler.
+* **add**: Modified stage'de olan bir dosyayı, staged olmak üzere, gelecek commit'e ekler.
     * `git add README.md` 'README.md' Markdown dosyamı bir sonraki commit'e eklemek için işaretledim.
 * *Git sisteminde modified, staged ve committed olmak üzere üç dosya türü vardır. Modified, Git'in local veritabanından farklı olan, üzerinde değişiklik yapılmış dosyalardır. Staged, bir sonraki commit'e eklenmek üzere add komutu ile işaretlenmiş dosyalardır. Committed, commit komutu ile yerel veritabanına eklenmiş dosyalardır.*
-* commit: 'add' komutu ile eklenmiş bütün dosyaları staged duruma getirir. 'push' komutu ile sunucuya yüklenmek üzere adeta paketler ve etiketler.
+* **commit**: 'add' komutu ile eklenmiş bütün dosyaları staged duruma getirir. 'push' komutu ile sunucuya yüklenmek üzere adeta paketler ve etiketler.
     * `git commit -m "paket mesajı"` Commit'e eklediğim bütün dosyalarımı (yalnızca 'README.md') bir sonraki 'push'ta GitHub'a yüklemek için paketledim, yerel veritabanına kaydettim.
     * Eğer '-m' ve beraberinde bir paket mesajı kullanmazsak Git bizi Vim veya Nano gibi bir text editor'e yönlendirir. Ben bunun yerine mesajımı '-m' kullanarak tek komutta eklemeyi tercih ediyorum.
-* push: Sunucuya yüklenmek üzere paketlenmiş yerel veritabanındaki bütün değişiklikleri sunucuya gönderir.
+* **push**: Sunucuya yüklenmek üzere paketlenmiş yerel veritabanındaki bütün değişiklikleri sunucuya gönderir.
     * `git push` 
   
 </details>
