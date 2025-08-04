@@ -177,11 +177,12 @@
 </details>
 <details>
 <summary>arrow function (=>) ifadesinin C#'taki yeri:</summary>
-    * Tek satırda fonksiyon tanımlama:
+
+* Tek satırda fonksiyon tanımlama:
       ```
       static int Multiply(int x, int y) => x * y;
       ```
-    * Lambda ifadesi:
+* Lambda ifadesi:
       ```
       Func<int, int> square = n => n * n;
       ```
