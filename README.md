@@ -243,7 +243,10 @@
 <details>
 <summary>JSON veri formatı ve kullanım amacı</summary>
 
-* **JSON nedir?**: JSON, JavaScript'ten türemiş, anahtar-değer eşleşmesi kaydeden bir metin depolama formatıdır. İç içe kategorizasyonu destekler. Yazılım projelerinde kolayca parçalara ayrılıp kaydedilebilen bir formattadır.
+* **JSON nedir?**: JSON (JavaScript Object Notation), JavaScript'ten türemiş, anahtar-değer eşleşmesi kaydeden bir metin depolama formatıdır. İç içe kategorizasyonu destekler. Okunabilir ve ayrıştırılabilir bir formattadır. Bu sayede yazılımlar ve bilgisayarlar arasında veri aktarımı için kullanılabilir.
+* JSON'un tek işlevi veri tutmaktır, içerisinde kod bulundurmaz. Uygun veri formatları şunlardır:
+    `string, number, boolean, null, array, object`
+* Formatı örnekte görüldüğü gibidir:
     ```
     {
       "name": "Oguz",
@@ -252,8 +255,6 @@
       "isStudent": true
     }
     ```
-    şeklinde yazılabilir.
-
 </details>
 
 
