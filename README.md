@@ -59,11 +59,11 @@
 <details>
 <summary>CI/CD nedir? Azure DevOps, GitHub Actions ile pipeline örnekleri</summary>
 
-* CI (Continuous Integration): CI basitçe kodunuzu sıklıkla ortak branch'e yüklemek, kendi kodunuzu da ortak kodu da güncel tutmak demektir. Yazılımcılar kodlarını kendi local branch'lerinde tutma eğilimi gösterebilirler. Bu prensip, bu duruma karşı olarak yazılımcıların kodlarını sıklıkla paylaşmaları gerektiğini söyler.
-* CD (Continuous Delivery): CD, otomatik testler vb. kullanarak değişiklik yaptığınız kodunuzu da daima 'deployable' yani yayımlanabilir bir durumda tutma prensibidir.
+* **CI (Continuous Integration)**: CI basitçe kodunuzu sıklıkla ortak branch'e yüklemek, kendi kodunuzu da ortak kodu da güncel tutmak demektir. Yazılımcılar kodlarını kendi local branch'lerinde tutma eğilimi gösterebilirler. Bu prensip, bu duruma karşı olarak yazılımcıların kodlarını sıklıkla paylaşmaları gerektiğini söyler.
+* **CD (Continuous Delivery)**: CD, otomatik testler vb. kullanarak değişiklik yaptığınız kodunuzu da daima 'deployable' yani yayımlanabilir bir durumda tutma prensibidir.
 * CI/CD pipeline dediğimiz şey basitçe bir yazılımcı ortak branch'e bir kod yüklediği zaman kodun otomatik şekilde yayımlanana kadar geçtiği adımlardır. Ortak branch'e bir kod yüklendiğinde, bu kodu önceden belirlenmiş testlere otomatik bir şekilde sokup, daha sonra projeyi otomatik bir şekilde build'leyip, süreç içerisinde herhangi bir sorun çıkmazsa da otomatik bir şekilde yayımlanmasına yarar. Çıkan bir sorunda da işlem durur ve ilgili yazılımcıya bildirim gider.
 * Ortak branch'e her güncelleme geldiği zaman manuel bir şekilde kodları birleştirip test etmek ve yayımlamak insan hatalarına izin veren, yavaş ve verimsiz bir yöntem olduğu için pipeline çok kullanışlıdır.
-* Basit bir GitHub Actions pipeline örneği: `.github/workflows/hello-world.yml`
+* Basit bir GitHub Actions pipeline örneği: `trex_research/.github/workflows/hello-world.yml`
     * <pre> name: Basit Pipeline
         on: [push]
         jobs:
