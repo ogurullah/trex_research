@@ -257,6 +257,12 @@
     ```
 </details>
 
+<details>
+<summary>SOAP ve GraphQL nedir, REST’ten farkları</summary>
+
+* test
+</details>
+
 
 
 
