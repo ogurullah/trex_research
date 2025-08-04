@@ -197,7 +197,9 @@
 <details>
 <summary>Backend nedir? Frontend ile farkları</summary>
 
-* test
+* Backend, bir yazılım programının, sunucu tarafında çalışan, mantık ve veri işlemlerinin halledildiği kısmıdır. Çeşitli sebeplerden dolayı çalışması beklenen servisin işlem ve veri depolama kısımları kullanıcı ile paylaşılmaz. Güvenlik ve verimlilik bunlara örnektir. Kullanıcının eline geçmemesi gereken veriler, örneğin diğer kullanıcıların şifreleri vb., Backend'de yer alır. Kullanıcının bilgisayarıyla sürekli iletişim halinde olmak verimsiz olacağı için bütün işlemler Backend'de görülüp Frontend'e genellikle sadece ham sonuç verileri gönderilir. 
+
+* Frontend ise aynı programın kullanıcı ile etkileşime geçen kısmıdır. Kullanıcı arayüzü, sunucuya veri gönderecek ve sunucudan gelen verileri düzenleyip gösterecek fonksiyonlar Frontend'de yer alır. Frontend yazılım işi olduğu kadar tasarım işidir de. Kullanıcıların bugüne dek alışmış olduğu belirli kurallara, estetik oranlarına, görsel iletişime uygun kurallı bir site tasarımı yapmak o siteyi kodlamak kadar zordur. Frontend'in ve Backend'in ikisinin de başarılı olmadığı bir senaryoda projenin kalitesi kullanıcı tarafından hissedilemez. Örneğin güzel görünen ama çok yavaş çalışan bir site ya da hızlı çalışan ama butonları bulmakta zorlanılan bir site kullanıcı için hiç iyi bir deneyim olmaz.
 </details>
 
 
