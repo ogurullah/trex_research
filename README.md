@@ -219,6 +219,21 @@
 <details>
 <summary>HTTP nedir? HTTP metodları: GET, POST, PUT, DELETE</summary>
 
+* **HTTP**: HTTP (Hypertext Transfer Protocol), istemciler ve web sunucular arasında bilgi aktarmak için kullanılır. İnternetin temel yapıtaşlarından birisidir. Birçok tarayıcı ve internet sitesi HTTP protokolünü kullanır. Genelde kullanıcı bilgisayarından gelen talepler (request) ve onlara sunucudan gönderilen cevaplar (response) yoluyla çalışır.
+* **GET, POST, PUT, DELETE** gibi yapılmak istenen işlemi belirten çeşitli metodlarla çalışır.
+* Verilerin şifreli bir biçimde gönderildiği bir versiyonu (HTTPS) de mevcuttur.
+
+* **HTTP Metodları**: Sunucuya yapılmak istenen işlem hakkında bilgi verir.
+    * **`GET`**: Sunucudan ham veri talebinde bulunur. Fotoğraf indirme işlemleri buna örnektir.
+    * **`POST`**: Sunucuya ham veri gönderme talebinde bulunur. Dosya yükleme işlemleri buna örnektir.
+    * **`PUT`**: Var olan bir veriyi düzenleme, yoksa oluşturma talebinde bulunur. Profil düzenleme buna örnektir.
+    * **`DELETE`**: Var olan bir veriyi silme talebi gönderir. Profil resmi kaldırmak buna örnektir.
+
+</details>
+
+<details>
+<summary>RESTful servislerin çalışma mantığı</summary>
+    
 * test
 </details>
 
