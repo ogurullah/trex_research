@@ -102,7 +102,7 @@
 * *.NET Framework, .NET Core ve .NET 7/8+ farkları*:
 
 |Özellik| .NET Framework   | .NET Core | .NET 7/8+  |
-|:--------|:-----------------:|:---------:|-----------:|
+|:-----------------:|:-----------------:|:-----------------:|:-----------------:|
 |Platform desteği|Yalnızca Windows'ta çalışır|Çoklu platformu destekler(Linux,Windows,Mac vb.)|Çoklu platformu destekler|
 |Güncellemeler|Güncelleme almaz|Güncelleme almaz|Güncelleme almaya devam eder|
 |Kaynak kodu|Açık kaynak kodlu değil|Açık kaynak kodlu|Açık kaynak kodlu|
