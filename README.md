@@ -122,8 +122,11 @@
     * **await**: Bitmesi uzun sürmesi beklenen kodlardan önce kullanılır. Yazılım diline bu işin bitmesini beklerken diğer satırlarla ilgilenmesi gerektiğini ama bu iş bittiğinde buraya geri döneceğini söyler.
     * **Task**: **await** ile birlikte çağırılacak **async** işi belirtir.
     * **Configureawait**: Varsayılan olarak açık gelir. *.Configureawait(false)* diyerek kapatılabilir. Bir görev bittiğinde başladığı akışa (thread) geri dönmesi anlamına gelir. Kullanıcı arayüzü uygulamalarında kapatılmamasına özen gösterilmelidir zira kullanıcı arayüzleri akış değiştirerek çalışamazlar. Kütüphane kodlarında kapatılması mantıklı olabilir.
+</details>
 
-* dotnet --info çıktısı ve yorumlama:
+<details>
+<summary> dotnet --info çıktısı ve yorumlama:</summary>
+    
     ```
     .NET SDK:
      Version:           8.0.412
@@ -170,8 +173,9 @@
       https://aka.ms/dotnet/download
     ```
     * .NET 8.0.412 versiyonu kurulu. arm64 mimarili işlemcide Mac OS işletim sistemi üzerinde çalışıyor. Henüz workload yüklenmemiş.
- 
-* arrow function (=>) ifadesinin C#'taki yeri:
+</details>
+<details>
+<summary>arrow function (=>) ifadesinin C#'taki yeri:</summary>
     * Tek satırda fonksiyon tanımlama:
       ```
       static int Multiply(int x, int y) => x * y;
