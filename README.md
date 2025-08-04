@@ -197,10 +197,32 @@
 <details>
 <summary>Backend nedir? Frontend ile farkları</summary>
 
-* Backend, bir yazılım programının, sunucu tarafında çalışan, mantık ve veri işlemlerinin halledildiği kısmıdır. Çeşitli sebeplerden dolayı çalışması beklenen servisin işlem ve veri depolama kısımları kullanıcı ile paylaşılmaz. Güvenlik ve verimlilik bunlara örnektir. Kullanıcının eline geçmemesi gereken veriler, örneğin diğer kullanıcıların şifreleri vb., Backend'de yer alır. Kullanıcının bilgisayarıyla sürekli iletişim halinde olmak verimsiz olacağı için bütün işlemler Backend'de görülüp Frontend'e genellikle sadece ham sonuç verileri gönderilir. 
+* **Backend**, bir yazılım programının, sunucu tarafında çalışan, mantık ve veri işlemlerinin halledildiği katmandır. Çeşitli sebeplerden dolayı, çalışması beklenen servisin işlem ve veri depolama kısımları kullanıcı ile paylaşılmaz. Güvenlik ve verimlilik, bu sebeplere örnektir. Kullanıcının eline geçmemesi gereken veriler, örneğin diğer kullanıcıların şifreleri vb., Backend'de yer alır. Kullanıcının bilgisayarıyla sürekli iletişim halinde olmak verimsiz olacağı için de bütün işlemler Backend'de görülüp Frontend'e genellikle sadece ham sonuç verileri gönderilir.
 
-* Frontend ise aynı programın kullanıcı ile etkileşime geçen kısmıdır. Kullanıcı arayüzü, sunucuya veri gönderecek ve sunucudan gelen verileri düzenleyip gösterecek fonksiyonlar Frontend'de yer alır. Frontend yazılım işi olduğu kadar tasarım işidir de. Kullanıcıların bugüne dek alışmış olduğu belirli kurallara, estetik oranlarına, görsel iletişime uygun kurallı bir site tasarımı yapmak o siteyi kodlamak kadar zordur. Frontend'in ve Backend'in ikisinin de başarılı olmadığı bir senaryoda projenin kalitesi kullanıcı tarafından hissedilemez. Örneğin güzel görünen ama çok yavaş çalışan bir site ya da hızlı çalışan ama butonları bulmakta zorlanılan bir site kullanıcı için hiç iyi bir deneyim olmaz.
+* **Frontend** ise aynı programın kullanıcı ile etkileşime geçen kısmıdır. Kullanıcı arayüzü, sunucuya veri gönderecek ve sunucudan gelen verileri düzenleyip gösterecek fonksiyonlar Frontend'de yer alır. Frontend yazılım işi olduğu kadar tasarım işidir de. Kullanıcıların bugüne dek alışmış olduğu belirli kurallara, estetik oranlarına, görsel iletişime uygun kurallı bir site tasarımı yapmak o siteyi kodlamak kadar zordur. Frontend'in ve Backend'in ikisinin de başarılı olmadığı bir senaryoda projenin kalitesi kullanıcı tarafından hissedilemez. Örneğin, güzel görünen ama çok yavaş çalışan bir site ya da hızlı çalışan ama butonları bulmakta zorlanılan bir site kullanıcı için hiç iyi bir deneyim sunmaz. İki katmanın da eş kalifiye elemanlar tarafından hazırlanması oldukça önemlidir.
 </details>
+
+<details>
+<summary>Web sunucusu nedir? API nedir? API türleri</summary>
+
+* **Web sunucusu**: Web sunucusu kısaca internete bağlı bir bilgisayardır. İçerisinde ilgili web sitesinin gerektirdiği yazılımlar bulunur. Birçok kullanıcının kullandığı tarayıcı HTTP protokolü kullanır ve bu tarayıcılara hitap etmesi için birçok web sunucusu HTTP yazılımı bulundurur. Sunucu, ilgili web sitesinin medya içeriklerini ve kodlarını depolar. Bu içerikleri kullanıcıya iki farklı şekilde gönderir, statik web sunucusu ve dinamik web sunucusu.
+    * **Statik Web Sunucusu**: Statik web sunucusu, ilgili dosyaları kullanıcının tarayıcısına olduğu haliyle gönderir.
+    * **Dinamik Web Sunucusu**: Dinamik web sunucusu, ilgili dosyalar ve HTTP yazılımının yanında ek yazılımlar da bulundurur. Kullanıcıya göndereceği dosyaları seçen yazılımlar, veri tabanları bunlara örnektir. Kullanıcıya göndereceği dosyaları göndermeden önce günceller ve ondan sonra gönderir.
+ 
+* **API**: API (Application Programming Interface), farklı yazılımların iletişim kurmasını sağlayan bir arayüzdür. Çoğu zaman başkasının yazdığı bir programa erişim sağlar ve eğer kaynak kodları kapalıysa kontrolü elimizde değildir ama önceden belirlenmiş kurallara göre ona veri gönderebilir ve yanıt alabiliriz. Açık kaynak kodlu ya da bizim geliştirdiğimiz bir API'ın her detayını değiştirmek de elimizdedir. Herhangi bir yazılım API sağlayabilir. Bir işletim sistemi de, bir internet sitesi de, bir veritabanı da API sağlayabilir. Basitçe anlatmak gerekirse API, yazdığımız kodla başka bir kodun arasında veri akışı sağlayan bir köprü görevi görür.
+
+* **API Örnekleri**:
+    * **Evrensel Kayıt Ekranları**: Üyelik gerektiren bir uygulamaya giriş yaparken Google, Facebook vb. platformlarda zaten var olan bir hesabı bağlama yoluyla hesap açma yöntemi API'lara oldukça iyi bir örnektir. Uygulamalar, ilgili platformun sunduğu API sayesinde oraya hesap bilgisi gönderebilir ve alabilir.
+    * **Sitelere Gömülü Youtube Videoları**: Bazı web sitelerinde otomatik oynatılabilen videolar olduğunu görmüşsünüzdür. Bunlardan bazıları gerçekten büyük boyutlu videolar olabiliyorlar, buna rağmen site açıldığı gibi direkt oynamaya başlayabiliyorlar. Bunun olmasına olanak sağlayan şey Youtube'un sağladığı API'dır. Youtube'da zaten yüklü olan videoların web sitelerinde oynatılabilmesini sağlar.
+</details>
+
+<details>
+<summary>HTTP nedir? HTTP metodları: GET, POST, PUT, DELETE</summary>
+
+* test
+</details>
+
+
 
 
 
