@@ -119,6 +119,67 @@
 
 * async, await, Task, Configureawait gibi anahtar kavramlar:
     * **async**: Kendinden sonraki kodun çalışması için işini bitirmesi gerekmeyen kod bloklarında kullanılır. *Aynı anda* birden fazla iş yapmak için kullanılır. Örneğin, programda kullanıcı ile alakasız ama yapılması gereken bir iş varsa, bu işi kullanıcı deneyimini hiç etkilemeden, arkaplanda, halletmek için **async** kullanılabilir.
+    * **await**: Bitmesi uzun sürmesi beklenen kodlardan önce kullanılır. Yazılım diline bu işin bitmesini beklerken diğer satırlarla ilgilenmesi gerektiğini ama bu iş bittiğinde buraya geri döneceğini söyler.
+    * **Task**: **await** ile birlikte çağırılacak **async** işi belirtir.
+    * **Configureawait**: Varsayılan olarak açık gelir. *.Configureawait(false)* diyerek kapatılabilir. Bir görev bittiğinde başladığı akışa (thread) geri dönmesi anlamına gelir. Kullanıcı arayüzü uygulamalarında kapatılmamasına özen gösterilmelidir zira kullanıcı arayüzleri akış değiştirerek çalışamazlar. Kütüphane kodlarında kapatılması mantıklı olabilir.
+
+* dotnet --info çıktısı ve yorumlama:
+    ```
+    .NET SDK:
+     Version:           8.0.412
+     Commit:            819e1a9566
+     Workload version:  8.0.400-manifests.9cf71931
+     MSBuild version:   17.11.31+933b72e36
+    
+    Runtime Environment:
+     OS Name:     Mac OS X
+     OS Version:  15.6
+     OS Platform: Darwin
+     RID:         osx-arm64
+     Base Path:   /usr/local/share/dotnet/sdk/8.0.412/
+    
+    .NET workloads installed:
+    Configured to use loose manifests when installing new manifests.
+    There are no installed workloads to display.
+    
+    Host:
+      Version:      8.0.18
+      Architecture: arm64
+      Commit:       ef853a7105
+    
+    .NET SDKs installed:
+      8.0.412 [/usr/local/share/dotnet/sdk]
+    
+    .NET runtimes installed:
+      Microsoft.AspNetCore.App 8.0.18 [/usr/local/share/dotnet/shared/Microsoft.AspNetCore.App]
+      Microsoft.NETCore.App 8.0.18 [/usr/local/share/dotnet/shared/Microsoft.NETCore.App]
+    
+    Other architectures found:
+      None
+    
+    Environment variables:
+      Not set
+    
+    global.json file:
+      Not found
+    
+    Learn more:
+      https://aka.ms/dotnet/info
+    
+    Download .NET:
+      https://aka.ms/dotnet/download
+    ```
+    * .NET 8.0.412 versiyonu kurulu. arm64 mimarili işlemcide Mac OS işletim sistemi üzerinde çalışıyor. Henüz workload yüklenmemiş.
+ 
+* arrow function (=>) ifadesinin C#'taki yeri:
+    * Tek satırda fonksiyon tanımlama:
+      ```
+      static int Multiply(int x, int y) => x * y;
+      ```
+    * Lambda ifadesi:
+      ```
+      Func<int, int> square = n => n * n;
+      ```
 </details>
 
 
