@@ -245,7 +245,7 @@
 
 * **JSON nedir?**: JSON (JavaScript Object Notation), JavaScript'ten türemiş, anahtar-değer eşleşmesi kaydeden bir metin depolama formatıdır. İç içe kategorizasyonu destekler. Okunabilir ve ayrıştırılabilir bir formattadır. Bu sayede yazılımlar ve bilgisayarlar arasında veri aktarımı için kullanılabilir.
 * JSON'un tek işlevi veri tutmaktır, içerisinde kod bulundurmaz. Uygun veri formatları şunlardır:
-    `string, number, boolean, null, array, object`
+    * `string, number, boolean, null, array, object`
 * Formatı örnekte görüldüğü gibidir:
     ```
     {
