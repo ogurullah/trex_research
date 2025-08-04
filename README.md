@@ -101,11 +101,14 @@
     * Büyük versiyon geçişleri geçmiş API'ları bozuyorken küçük güncellemeler hata düzeltmeleri, ek kütüphaneler ve performans geliştirmelerinden oluşuyordu.
 * *.NET Framework, .NET Core ve .NET 7/8+ farkları*:
 
-| .NET Framework   | .NET Core | .NET 7/8+  |
-|:-----------------|:---------:|-----------:|
-|Yalnızca Windows'ta çalışır|Çoklu platformu destekler(Linux,Windows,Mac vb.)|Çoklu platformu destekler|
-|Güncelleme almaz|Güncelleme almaz|Güncelleme almaya devam eder|
-| | |
+|Özellik| .NET Framework   | .NET Core | .NET 7/8+  |
+|:--------|:-----------------:|:---------:|-----------:|
+|Platform desteği|Yalnızca Windows'ta çalışır|Çoklu platformu destekler(Linux,Windows,Mac vb.)|Çoklu platformu destekler|
+|Güncellemeler|Güncelleme almaz|Güncelleme almaz|Güncelleme almaya devam eder|
+|Kaynak kodu|Açık kaynak kodlu değil|Açık kaynak kodlu|Açık kaynak kodlu|
+|Desteklediği araçlar|Visual Studio|Visual Studio, VS Code, CLI araçları|Visual Studio, VS Code, CLI araçları|
+|Kullanım alanları|Eski Windows uygulamaları|Çoklu platform uygulamaları|Modern çoklu platform uygulamaları|
+|Performans|Kıyasla düşük|Ortalama|En iyi performans|
 
 </details>
 
