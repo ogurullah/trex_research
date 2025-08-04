@@ -178,6 +178,7 @@
     
 * .NET 8.0.412 versiyonu kurulu. arm64 mimarili işlemcide Mac OS işletim sistemi üzerinde çalışıyor. Henüz workload yüklenmemiş.
 </details>
+
 <details>
 <summary>arrow function (=>) ifadesinin C#'taki yeri:</summary>
 
@@ -190,6 +191,15 @@
       Func<int, int> square = n => n * n;
       ```
 </details>
+
+## 3. Backend Geliştirme Temelleri
+
+<details>
+<summary>Backend nedir? Frontend ile farkları</summary>
+
+* test
+</details>
+
 
 
 
