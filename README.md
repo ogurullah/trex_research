@@ -172,7 +172,8 @@
     Download .NET:
       https://aka.ms/dotnet/download
     ```
-    * .NET 8.0.412 versiyonu kurulu. arm64 mimarili işlemcide Mac OS işletim sistemi üzerinde çalışıyor. Henüz workload yüklenmemiş.
+    
+* .NET 8.0.412 versiyonu kurulu. arm64 mimarili işlemcide Mac OS işletim sistemi üzerinde çalışıyor. Henüz workload yüklenmemiş.
 </details>
 <details>
 <summary>arrow function (=>) ifadesinin C#'taki yeri:</summary>
