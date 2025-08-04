@@ -234,7 +234,26 @@
 <details>
 <summary>RESTful servislerin çalışma mantığı</summary>
     
-* test
+* **REST**: Sunucu ile istemciyi birbirinden modüler olarak ayıran genel kodlama prensiplerine denir. REST prensipleri dikkate alınarak kodlanmış web servislerinde istemcide sunucu etkilenmeden sunucuda da istemci etkilenmek değişiklik yapmak mümkündür, birbirlerine iletecekleri verilerin formatları değişmesin yeter.
+    * REST prensipleriyle yazılmış web servislerinde ve istemcilerinde 'state' sistemi yoktur. İstemciler ve sunucular birbirlerinin hangi durumda oldukları hakkında haberdar değillerdir. Birbirlerine gönderdikleri bütün verileri her durumda her şekilde anlayabilirler. Bu kısıtlamanın sebebi kaynakları olabildiğince verimli kullanmaktır çünkü web'te iletişim hızı bir bilgisayarın kendi içindeki iletişim hızına kıyasla çok yavaştır.
+    * REST mimarisinde istemci sunucuya çeşitli talepler gönderir ve sunucu bu taleplere yönelik cevaplar verir.
+        * *HTTP metodları buna örnektir*.
+</details>
+
+<details>
+<summary>JSON veri formatı ve kullanım amacı</summary>
+
+* **JSON nedir?**: JSON, JavaScript'ten türemiş, anahtar-değer eşleşmesi kaydeden bir metin depolama formatıdır. İç içe kategorizasyonu destekler. Yazılım projelerinde kolayca parçalara ayrılıp kaydedilebilen bir formattadır.
+    ```
+    {
+      "name": "Oguz",
+      "age": 19,
+      "skills": ["Python", "C"],
+      "isStudent": true
+    }
+    ```
+    şeklinde yazılabilir.
+
 </details>
 
 
