@@ -103,12 +103,20 @@
 
 |Özellik| .NET Framework   | .NET Core | .NET 7/8+  |
 |:-----------------:|:-----------------:|:-----------------:|:-----------------:|
-|Platform desteği|Yalnızca Windows'ta çalışır|Çoklu platformu destekler(Linux,Windows,Mac vb.)|Çoklu platformu destekler|
+|Platform desteği|Yalnızca Windows'ta çalışır|Platformlar arası çalışır(Linux,Windows,Mac vb.)|Platformlar arası çalışır|
 |Güncellemeler|Güncelleme almaz|Güncelleme almaz|Güncelleme almaya devam eder|
 |Kaynak kodu|Açık kaynak kodlu değil|Açık kaynak kodlu|Açık kaynak kodlu|
 |Desteklediği araçlar|Visual Studio|Visual Studio, VS Code, CLI araçları|Visual Studio, VS Code, CLI araçları|
 |Kullanım alanları|Eski Windows uygulamaları|Çoklu platform uygulamaları, Web, API, Mikroservis|Modern çoklu platform uygulamaları, Bulut, Web API ve dahası|
 |Performans|Kıyasla düşük|Ortalama|En iyi performans|
-
 </details>
+
+<details>
+<summary>Senkron ve Asenkron Programlama</summary>
+
+* async, await, Task, Configureawait gibi anahtar kavramlar:
+    * **async**: Kendinden sonraki kodun çalışması için işini bitirmesi gerekmeyen kod bloklarında kullanılır. *Aynı anda* birden fazla iş yapmak için kullanılır. Örneğin, programda kullanıcı ile alakasız ama yapılması gereken bir iş varsa, bu işi kullanıcı deneyimini hiç etkilemeden, arkaplanda, halletmek için **async** kullanılabilir.
+</details>
+
+
 
