@@ -122,6 +122,9 @@
     * **await**: Bitmesi uzun sürmesi beklenen kodlardan önce kullanılır. Yazılım diline bu işin bitmesini beklerken diğer satırlarla ilgilenmesi gerektiğini ama bu iş bittiğinde buraya geri döneceğini söyler.
     * **Task**: **await** ile birlikte çağırılacak **async** işi belirtir.
     * **Configureawait**: Varsayılan olarak açık gelir. *.Configureawait(false)* diyerek kapatılabilir. Bir görev bittiğinde başladığı akışa (thread) geri dönmesi anlamına gelir. Kullanıcı arayüzü uygulamalarında kapatılmamasına özen gösterilmelidir zira kullanıcı arayüzleri akış değiştirerek çalışamazlar. Kütüphane kodlarında kapatılması mantıklı olabilir.
+ 
+* Senkron, Asenkron örnek senaryo açıklamaları:
+    * HTTP çağrıları, Web API çağrıları vb. bekleme gerektirebilen işlemlerdir. Geleneksel senkron programlama ile bu işlemleri yapmaya çalışmak, lokal bilgisayarın elinde olmayan bir bekleme oluşturacağı için, kullanıcı deneyimi ve zaman verimliliği bakımlarından epey mantıksızdır. Kullanıcı, arkaplanda veri çağrıları yapılmışken başka işlerle ilgilenebilmek ister. Neticede, hiçbirimiz evde bulaşık makinesi çalışıyor diye donup kalmıyoruz, makinenin işini bitirmesini beklerken başka işlerle uğraşıyoruz. Bu şekilde bekleme gerektirebilen işlemleri senkron programlama ile çağırmak aynı bulaşık makinesinin işini bitirmesini oturup beklemek kadar mantıksızdır. Asenkron programlama sayesinde kullanıcı, çağırdığı bir verinin gelmesini beklerken, programın başka bir yerinde başka bir işlemi de çağırarak kendisine oldukça zaman kazandırabilir.
 </details>
 
 <details>
