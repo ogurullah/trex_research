@@ -349,8 +349,11 @@
 
 <details>
 <summary>Clean Architecture</summary>
+    
+* **Clean Architecture**: Clean Architecture, Uncle Bob tarafından önerilen, business (iş) kodlarını veritabanından, frameworklerden ve arayüzden tamamen bağımsız hale getirmeyi öneren yazılım mimarisidir. Temel fikir, yazılım katmanlarında bağımlılığın her zaman dıştan içe olması gerektiği ve iç katmanların dış katmanlara bağlı olmaması gerektiğidir. Örneğin, ham kod framework'e bağlı olmamalıdır. Bu sayede kod daha kolay test edilebilir ve daha temiz olur.
 
-* Domain, Application, Infrastructure, API katmanları
+* **Domain, Application, Infrastructure, API katmanları**:
+    * **
 </details>
 
 
