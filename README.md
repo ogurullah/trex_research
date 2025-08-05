@@ -325,10 +325,8 @@
             class Araba:
                 def __init__(self, motor):
                     self.motor = motor
-        ```
-        * DI ile tanımladığım Araba class'ım sayesinde bu kodu yazabiliyorum:
-        ```
-            araba = Araba( V6_motor() )
+
+            araba1 = Araba( V6_motor() )
             araba2 = Araba( V8_motor() )
         ```
     * Aynı zamanda DI ile yazılmış class'ların test kodlarını yazmak da kıyasla çok kolaydır çünkü DI class'ları modülerleştirir. Araba ve motor class'larını birbirinden ayrı şekilde test edebiliyor olmak işi epey basitleştirir. Bu sayede kodu yazarken hata ayıklama süreçleri de kolaylaşır.
