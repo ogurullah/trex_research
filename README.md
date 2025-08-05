@@ -17,35 +17,42 @@
 </details>
 
 <details>
-<summary>Temel Git komutları: init, clone, add, commit, push, pull, branch, merge</summary>
+<summary`>Temel Git komutları: init, clone, add, commit, push, pull, branch, merge</summary>
 
-* **init**: Boş bir Git repository'si oluşturur. Repository, Git'in üzerinde versiyon kontrolü yapacağı klasörlere verilen addır.
+* **`init`**: Boş bir Git repository'si oluşturur. Repository, Git'in üzerinde versiyon kontrolü yapacağı klasörlere verilen addır.
     * `cd Desktop` Masaüstüne gittim.
     * `mkdir trex_research` 'trex_research' adlı bir klasör oluşturdum.
     * `git init` 'trex_research' adında bir Git repository'si oluşturdum.
     * `ls` Şu anda klasör boş.
 * README.md dosyasını manuel bir şekilde oluşturdum. Markdown dosyasını JupyterLab kullanarak düzenledim.
-* **add**: Modified stage'de olan bir dosyayı, staged olmak üzere, gelecek commit'e ekler.
+* **`add`**: Modified stage'de olan bir dosyayı, staged olmak üzere, gelecek commit'e ekler.
     * `git add README.md` 'README.md' Markdown dosyamı bir sonraki commit'e eklemek için işaretledim.
 * *Git sisteminde modified, staged ve committed olmak üzere üç dosya türü vardır. Modified, Git'in local veritabanından farklı olan, üzerinde değişiklik yapılmış dosyalardır. Staged, bir sonraki commit'e eklenmek üzere add komutu ile işaretlenmiş dosyalardır. Committed, commit komutu ile yerel veritabanına eklenmiş dosyalardır.*
-* **commit**: 'add' komutu ile eklenmiş, staged duruma gelmiş, bütün dosyaları committed duruma getirir yani yerel veritabanına ekler. Dosyaları 'push' komutu ile sunucuya yüklenmek üzere adeta paketler ve etiketler.
+* **`commit`**: 'add' komutu ile eklenmiş, staged duruma gelmiş, bütün dosyaları committed duruma getirir yani yerel veritabanına ekler. Dosyaları 'push' komutu ile sunucuya yüklenmek üzere adeta paketler ve etiketler.
     * `git commit -m "paket mesajı"` Staged duruma getirdiğim bütün dosyalarımı (yalnızca 'README.md') bir sonraki 'push'ta GitHub'a yüklemek için paketledim, yerel veritabanına kaydettim.
     * Eğer '-m' ve beraberinde bir paket mesajı kullanmazsak Git bizi Vim veya Nano gibi bir text editor'e yönlendirir. Ben bunun yerine mesajımı '-m' kullanarak tek komutta eklemeyi tercih ediyorum.
-* **push**: Sunucuya yüklenmek üzere paketlenmiş yerel veritabanındaki bütün değişiklikleri sunucuya gönderir.
+* **`push`**: Sunucuya yüklenmek üzere paketlenmiş yerel veritabanındaki bütün değişiklikleri sunucuya gönderir.
     * `git push` 'README.md' dosyasını GitHub'a yükledim.
-* **fetch**: Sunucudaki versiyon ile yerel veritabanındaki versiyonu kıyaslar, sunucudaki güncelse değişiklikleri alır.
+* **`fetch`**: Sunucudaki versiyon ile yerel veritabanındaki versiyonu kıyaslar, sunucudaki güncelse değişiklikleri alır.
     * `git fetch` Sunucudaki 'README.md' ile yerel aynı.
-* **merge**: 'fetch' ile aldığı değişiklikleri yerel dosyalarla birleştirir. Branch'ları birleştirmek için de kullanılır.
+* **`merge`**: 'fetch' ile aldığı değişiklikleri yerel dosyalarla birleştirir. Branch'ları birleştirmek için de kullanılır.
     * `git merge` Already up to date.
-* **pull**: 'fetch' ve sonrasında 'merge' uygular.
+* **`pull`**: 'fetch' ve sonrasında 'merge' uygular.
     * `git pull` Already up to date.
-* **branch**: Var olan versiyonun ikisi birbiriyle çakışmayan bir klonunu üretir. Bir nevi paralel evren gibi çalışır. Başka branch'taki değişiklikler ana branch'i etkilemez.
+* **`branch`**: Var olan versiyonun ikisi birbiriyle çakışmayan bir klonunu üretir. Bir nevi paralel evren gibi çalışır. Başka branch'taki değişiklikler ana branch'i etkilemez.
     * `git branch test` 'test' adında bir branch oluşturur.
     * `git branch` '* main' ve 'test' olmak üzere iki branch görünüyor. '* main' şu anda main branch'teyiz demek.
-* **checkout**: branch'lar arası geçiş yapmayı sağlar.
+* **`checkout`**: branch'lar arası geçiş yapmayı sağlar.
     * `git checkout test` main branch'tan çıkar ve test adındaki branch'a girer.
     * `git branch` 'main' ve '* test' olmak üzere iki branch görünüyor. Şu anda test'teyiz.
     * Burada yapacağımız bütün 'add', 'commit', 'push' işlemleri test branch'ın içerisinde olacak.
+* **`stash`**: Değişiklik yapılmış dosyaları daha sonra geri dönebilmek üzere kenara atar. 'pull' yapıp yine de lokal değişiklikleri yitirmemeye yarar.
+    * `git stash`: Henüz commit'lenmemiş ama 'add'lenmiş değişiklikleri kenara attım.
+    * `git pull`: Sunucudaki güncel değişiklikleri çektim.
+    * `git add README.md`: Dosyada değişiklik yaptım ve commit yapmak üzere paketledim.
+    * `git commit -m "stash test"`: Paketim göndermeye hazır.
+    * `git push`: Değişiklikleri sunucuya gönderdim.
+    * `git stash pop`: Kenara atmış olduğum değişiklikleri elimdeki dosyalara uyguladım.
 </details>
 
 <details>
@@ -260,8 +267,24 @@
 <details>
 <summary>SOAP ve GraphQL nedir, REST’ten farkları</summary>
 
-* test
+* **SOAP**: SOAP (Simple Object Access Protocol), yalnızca XML formatında çalışan bir iletişim protokolüdür. Web servisleri ve API'ları arasında kullanılır. HTTP ve SMTP protokolleri üzerinde çalışır. Kendine has sıkı bir formatı vardır ve değiştirilemez.
+* SOAP servisleri, WSDL (Web Services Description Language) ile tanımlanır. Bu sayede istemci ile sunucu arasında nasıl iletişim kurulacağı detaylı bir şekilde anlatılır. SOAP'ın uzmanlık alanı hız, verimlilik vb. değil, güvenlik ve güvenilirliktir.
+
+* **GraphQL**: GraphQL, JSON formatında çıktı veren, veriyi tanımlı kaynaklardan esnek bir şekilde toplayıp istemcinin beklediği mimaride gönderebilen bir sorgu dilidir. İstemciye sadece istediği verileri verebilir ve gereksiz veri akışını önlemeye yarar. HTTP protokolü üzerinde çalışır. Veri, istemcinin beklediği yapıda döner.
+
+|Özellik| REST   | SOAP | GraphQL |
+|:-----------------:|:-----------------:|:-----------------:|:-----------------:|
+|Nedir?|Mimari stili|İletişim protokolü|Sorgu dili |
+|Format|JSON,XML|XML|JSON|
+|Esneklik|Belli başlı kuralları var|Oldukça sıkı kuralları var|İstemciye göre|
 </details>
+
+## 4. ASP.NET
+
+<details>
+<summary>ASP.NET ve ASP.NET Core nedir? Avantajları, farkları</summary>
+</details>
+
 
 
 
