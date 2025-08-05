@@ -318,9 +318,9 @@
                 def __init__(self):
                     self.motor = V6_motor()
 
-            araba = Araba() #Bu araba her zaman V6 motor ile çalışacak.
+            araba = Araba() # Bu araba her zaman V6 motor ile çalışacak.
         ```
-        * bu arabanın motorunu V8 yapmak istediğim senaryoda bütün class'ı baştan yazmam gerekecek. DI bizi bu durumdan kurtarıyor.
+        * bu arabanın motorunu V8 yapmak istediğim senaryoda bütün class'ı baştan yazmam gerekecek. DI bizi bu durumdan bu şekilde kurtarıyor:
         ```
             class Araba:
                 def __init__(self, motor):
@@ -328,10 +328,10 @@
         ```
         * DI ile tanımladığım Araba class'ım sayesinde bu kodu yazabiliyorum:
         ```
-            araba = Araba( V6_motor() ):
-            araba2 = Araba( V8_motor() ):
+            araba = Araba( V6_motor() )
+            araba2 = Araba( V8_motor() )
         ```
-    * DI'ın tek faydası bu değil, class oluştururken alt class'larını da oluşturmak zorunda olmamak çok faydalı olduğu gibi, DI ile yazılmış class'ların test kodlarını yazmak da kıyasla çok daha kolaydır. DI hem test hem de kod yazma aşamalarını kolaylaştırıyor. Ayrıca kodu modülerleştirdiği için hata ayıklama süreçlerini de çok daha kolay hale getiriyor.
+    * Aynı zamanda DI ile yazılmış class'ların test kodlarını yazmak da kıyasla çok kolaydır çünkü DI class'ları modülerleştirir. Araba ve motor class'larını birbirinden ayrı şekilde test edebiliyor olmak işi epey basitleştirir. Bu sayede kodu yazarken hata ayıklama süreçleri de kolaylaşır.
 </details>
 
 
