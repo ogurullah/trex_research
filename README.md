@@ -302,7 +302,36 @@
 <details>
 <summary>Middleware nedir, nasıl çalışır?</summary>
 
-* test
+* **Middleware**: Middleware, bir web geliştirme mimarisinde, kullanıcı isteği ile sunucu arasında bir ara katman olarak görev yapar. Gelen istekler (request) ile sunucudan gelen cevaplar (response) arasında çeşitli görevler üstlenebilir. Bu görevler, kayıt (log) tutma, doğrulama (authentication), sık istenen verileri önbellekten gönderme (cache) vb. olabilir.
+    * **Nasıl çalışır?**: İstek gelir, Middleware'a uğrar. Middleware bu istekle ne yapacağına karar verir ve eğer varsa kendisinden sonraki Middleware'a, yoksa Controller'a bu isteği gönderir. Ardından Controller'dan çıkan yanıt (response) aynı Middleware'lardan ters yönde geçerek kullanıcıya ulaşır.
+</details>
+
+<details>
+<summary>Dependency Injection (DI) nedir, neden önemlidir?</summary>
+
+* **Dependency Injection**: Dependency Injection (DI), bir class'ın bağlı olduğu alt class'ları kendi içinde oluşturmadan var olabilmesini sağlar. Normalde bağlı olduğu alt class'ları kendisi oluşturan class'lar, DI sayesinde bu class'ları dışarıdan alabilme özelliğine sahip olur. Bunu bir örnekle açıklamak çok daha kolay olacaktır.
+    * Bir araba class'ınız olduğunu düşünelim. Motor, far vb. alt class'lara sahip olsun. Bu sayede araba.hareket() gibi metodlarınız çalışabilecektir. Lakin, bu sadece tek bir motor class'ı olduğu durumda geçerli olur. Daha farklı bir motor ile aynı araba class'ını oluşturmak istediğinizde bunu geleneksel yollarla başaramazsınız.
+        * Bu noktada DI devreye girer. class'ları, alt class bağlantılarını direkt bir şekilde yazmak yerine, yerine herhangi bir class gelebilecek bir tanımlamayla bırakarak oluşturur. Bu sayede siz gidip sonradan istediğiniz özellikteki alt class'ı oluşturup arabaya verebilirsiniz.
+    * DI kullanmadan yazılmış bir araba class'ı şu şekilde görünür:
+        ```
+            class Araba:
+                def __init__(self):
+                    self.motor = V6_motor()
+
+            araba = Araba() #Bu araba her zaman V6 motor ile çalışacak.
+        ```
+        * bu arabanın motorunu V8 yapmak istediğim senaryoda bütün class'ı baştan yazmam gerekecek. DI bizi bu durumdan kurtarıyor.
+        ```
+            class Araba:
+                def __init__(self, motor):
+                    self.motor = motor
+        ```
+        * DI ile tanımladığım Araba class'ım sayesinde bu kodu yazabiliyorum:
+        ```
+            araba = Araba( V6_motor() ):
+            araba2 = Araba( V8_motor() ):
+        ```
+    * DI'ın tek faydası bu değil, class oluştururken alt class'larını da oluşturmak zorunda olmamak çok faydalı olduğu gibi, DI ile yazılmış class'ların test kodlarını yazmak da kıyasla çok daha kolaydır. DI hem test hem de kod yazma aşamalarını kolaylaştırıyor. Ayrıca kodu modülerleştirdiği için hata ayıklama süreçlerini de çok daha kolay hale getiriyor.
 </details>
 
 
