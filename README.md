@@ -363,6 +363,29 @@
 <details>
 <summary>SQL nedir?</summary>
 
+* **SQL**: SQL (Structured Query Language), bir veritabanı yönetim dilidir. Veritabanları ile etkileşime geçmesi için özellikle yazılmıştır. Ancak, geleneksel yazılım dillerinde görmeyi bekleyeceğimiz bütün özellikleri taşımaz. Bu yüzden genelde diğer yazılım dilleriyle yazılan projelere (Python, C vb.) gömülerek kullanılır.
+    * Diğer dillerle birleştirilmiş ve farklı şekillerde kullanılan birçok varyasyonu mevcuttur (MySQL, Oracle SQL vb.).
+    * Basit CRUD işlemlerinden çok daha kompleks tablo tasarlama ve düzenleme işlemlerine kadar birçok veri düzenleme özelliği vardır.
+    * Filtreleme, sıralama vb. güçlü sorgulama özellikleri vardır.
+    * *Deklaratif* bir dildir, yani ne istediğini yazdığında sana onu verir, nasıl yapılacağı ile arkaplanda kendisi ilgilenir.
+    * 4 ayrı komut türü vardır:
+        * **DDL (Data Definition Language)**: Yapı ile ilgili komutlar:
+            * CREATE, ALTER, DROP
+            * #bunlar açıklanacak
+        * **DML (Data Manipulation Language)**: Veri ile ilgili komutlar:
+            * SELECT, INSERT, UPDATE, DELETE
+            * #bunlar açıklanacak
+        * **DCL (Data Control Language)**: Yetkilendirme ile ilgili komutlar:
+            * GRANT, REVOKE
+            * #bunlar açıklanacak
+        * **TCL (Transaction Control Language)**: İşlemlerle ilgili komutlar:
+            * COMMIT, ROLLBACK
+            * #bunlar açıklanacak
+</details>
+
+<details>
+<summary>İlişkisel ve ilişkisel olmayan veritabanları arasındaki farklar</summary>
+
 * test
 </details>
 
