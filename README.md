@@ -332,6 +332,16 @@
     * Aynı zamanda DI ile yazılmış class'ların test kodlarını yazmak da kıyasla çok kolaydır çünkü DI class'ları modülerleştirir. Araba ve motor class'larını birbirinden ayrı şekilde test edebiliyor olmak işi epey basitleştirir. Bu sayede kodu yazarken hata ayıklama süreçleri de kolaylaşır.
 </details>
 
+<details>
+<summary>Katmanlı Mimari (Layered Architecture)</summary>
+
+* **Presentation, Business, Data Access katmanları**:
+* **Data Access**: Data Access (veri erişim) katmanı, sistemin kullandığı verilere erişilen katmandır. Bu katman kompleks bir veritabanı da, basit bir JSON dosyası ve fonksiyonları da olabilir. API bağlantıları vb. gelişmiş veri sistemleri bulundurabilir. Business'tan gelen kararları uygulayarak **CRUD** (Create, Read, Update, Delete) işlemleri burada uygulanır.
+* **Business**: Programın bütün mantıksal işlerinin yapıldığı katmandır. Hesaplamalar, veri işlemeler, doğrulamalar vb. hep bu katmanda yapılır. Verilerle ilgili kararlar bu katmandan Data Access'e gönderilir, kullanıcıya gösterilecek veriler de bu katmandan Presentation'a gönderilir.
+* **Presentation**: Programın kullanıcı ile iletişimde olan katmanı bu katmandır. Kullanıcı arayüzü, girdi kutuları vb. hep bu katmanda yer alır. Kullanıcının girdilerini Business katmanına gönderir ve Business katmanından gelen verileri kullanıcıya gösterir. Yalnız bu katman kullanıcı sadece kullanıcı ile iletişime geçmek zorunda değil. Yapılan program bir API olsaydı bu katman onun erişim noktası da olabilirdi.
+    * Katman bağımlılığı tek yönlüdür: *`Presentation -> Business -> Data Access`*
+</details>
+
 
 
 
