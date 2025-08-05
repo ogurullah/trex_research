@@ -284,6 +284,25 @@
 
 <details>
 <summary>ASP.NET ve ASP.NET Core nedir? Avantajları, farkları</summary>
+
+* **ASP.NET**: ASP.NET, .NET çatısı altında yer alan bir web geliştirme platformdur. Web uygulamaları, web siteleri ve web servisleri geliştirmeye yarar. Dinamik web sayfaları üretmeye olanak sağlar. Sunucu tarafı (backend) C# ile yazılabilir. Bu sayede işlemler hızlı ve güvenli şekilde çalışır. Kullanıcı yüzü ise (frontend) HTML, CSS, Javascript ile yazılır. Güncel frontend yazılımları da, -Blazor, React, Angular vb.- kullanılabilir.
+* **ASP.NET Core**: ASP.NET'in çok daha gelişmiş ve performanslı bir versiyonudur. Açık kaynak kodlu ve çoklu platform desteklidir. REST API'lar yazmaya olanak sağlar. OpenAI ve Azure ile yapay zeka destekli web uygulamaları üretmeye olanak sağlar. ASP.NET artık güncelleme almıyor fakat ASP.NET onun devamı olarak güncelleme almaya ve geliştirilmeye devam ediyor.
+* Artık ASP.NET kullanmanın geçerli bir avantajı kalmamış durumda. Çeşitli sebeplerden dolayı ASP.NET Core'a geçemeyen bir projeniz yoksa geçmemek için bir mazeretiniz yok gibi, çünkü ASP.NET Core, ASP.NET'in yaptığı her şeyi daha iyi yapıyor.
+</details>
+
+<details>
+<summary>MVC nedir, ne için kullanılır?</summary>
+    
+* **MVC**: MVC (Model View Controller), bir uygulamada mantık, kullanıcı arayüzü ve veri arasındaki ilişkiyi birbirinden ayrı tutan ve optimize eden bir mimari modeldir. Başlarda masaüstü uygulamalarında GUI'lar (Graphical User Interface) için kullanılırken şimdi daha çok web uygulamalarında kullanılmaktadır. Üç ana parçadan oluşur: Controller, Model, View
+    * **Controller**: Diğer iki bileşen ve kullanıcı arasında bir köprü görevi görür. Gelen verilere ve kullanıcı girdilerine göre karar verip çağrılarda bulunur. Diğer bileşenleri yöneten bileşendir.
+    * **View**: Kullanıcı arayüzünü temsil eder. Controller'dan yeni veri geldiğinde, bir veri değiştiğinde, arayüz burada güncellenir. Programın kullanıcı ile etkileşime geçtiği yer burasıdır.
+    * **Model**: Programın veritabanı ile iletişime geçen kısmıdır. Controller'dan gelen talepleri yerine getirir. Veritabanı üzerinde yazma, okuma, silme vb. işlemler yapar. Verilerle ilgili işlemler ve hesaplamalar bu bileşende yer alır.
+</details>
+
+<details>
+<summary>Middleware nedir, nasıl çalışır?</summary>
+
+* test
 </details>
 
 
