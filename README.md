@@ -268,7 +268,7 @@
 <summary>SOAP ve GraphQL nedir, REST’ten farkları</summary>
 
 * **SOAP**: SOAP (Simple Object Access Protocol), yalnızca XML formatında çalışan bir iletişim protokolüdür. Web servisleri ve API'ları arasında kullanılır. HTTP ve SMTP protokolleri üzerinde çalışır. Kendine has sıkı bir formatı vardır ve değiştirilemez.
-* SOAP servisleri, WSDL (Web Services Description Language) ile tanımlanır. Bu sayede istemci ile sunucu arasında nasıl iletişim kurulacağı detaylı bir şekilde anlatılır. SOAP'ın uzmanlık alanı hız, verimlilik vb. değil, güvenlik ve güvenilirliktir.
+    * SOAP servisleri, WSDL (Web Services Description Language) ile tanımlanır. Bu sayede istemci ile sunucu arasında nasıl iletişim kurulacağı detaylı bir şekilde anlatılır. SOAP'ın uzmanlık alanı hız, verimlilik vb. değil, güvenlik ve güvenilirliktir.
 
 * **GraphQL**: GraphQL, JSON formatında çıktı veren, veriyi tanımlı kaynaklardan esnek bir şekilde toplayıp istemcinin beklediği mimaride gönderebilen bir sorgu dilidir. İstemciye sadece istediği verileri verebilir ve gereksiz veri akışını önlemeye yarar. HTTP protokolü üzerinde çalışır. Veri, istemcinin beklediği yapıda döner.
 
