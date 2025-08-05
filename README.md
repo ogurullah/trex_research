@@ -353,7 +353,17 @@
 * **Clean Architecture**: Clean Architecture, Uncle Bob tarafından önerilen, business (iş) kodlarını veritabanından, frameworklerden ve arayüzden tamamen bağımsız hale getirmeyi öneren yazılım mimarisidir. Temel fikir, yazılım katmanlarında bağımlılığın her zaman dıştan içe olması gerektiği ve iç katmanların dış katmanlara bağlı olmaması gerektiğidir. Örneğin, ham kod framework'e bağlı olmamalıdır. Bu sayede kod daha kolay test edilebilir ve daha temiz olur.
 
 * **Domain, Application, Infrastructure, API katmanları**:
-    * **
+    * ??
+
+* Startup.cs ??
+</details>
+
+## 5. Veritabanı ve ORM
+
+<details>
+<summary>SQL nedir?</summary>
+
+* test
 </details>
 
 
