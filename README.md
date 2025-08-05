@@ -277,6 +277,7 @@
 |Nedir?|Mimari stili|İletişim protokolü|Sorgu dili |
 |Format|JSON,XML|XML|JSON|
 |Esneklik|Belli başlı kuralları var|Oldukça sıkı kuralları var|İstemciye göre|
+|Özellik|Pratik ve yaygın|Güvenilir|Esnek, istemciye göre|
 </details>
 
 ## 4. ASP.NET
