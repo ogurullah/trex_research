@@ -336,15 +336,15 @@
 <summary>Katmanlı Mimari (Layered Architecture)</summary>
 
 * **Presentation, Business, Data Access katmanları**:
-* **Data Access**: Data Access (veri erişim) katmanı, sistemin kullandığı verilere erişilen katmandır. Bu katman kompleks bir veritabanı da, basit bir JSON dosyası ve fonksiyonları da olabilir. API bağlantıları vb. gelişmiş veri sistemleri bulundurabilir. Business'tan gelen kararları uygulayarak **CRUD** (Create, Read, Update, Delete) işlemleri burada uygulanır.
-* **Business**: Programın bütün mantıksal işlerinin yapıldığı katmandır. Hesaplamalar, veri işlemeler, doğrulamalar vb. hep bu katmanda yapılır. Verilerle ilgili kararlar bu katmandan Data Access'e gönderilir, kullanıcıya gösterilecek veriler de bu katmandan Presentation'a gönderilir.
-* **Presentation**: Programın kullanıcı ile iletişimde olan katmanı bu katmandır. Kullanıcı arayüzü, girdi kutuları vb. hep bu katmanda yer alır. Kullanıcının girdilerini Business katmanına gönderir ve Business katmanından gelen verileri kullanıcıya gösterir. Yalnız bu katman kullanıcı sadece kullanıcı ile iletişime geçmek zorunda değil. Yapılan program bir API olsaydı bu katman onun erişim noktası da olabilirdi.
-    * Katman bağımlılığı tek yönlüdür: *`Presentation -> Business -> Data Access`*
+    * **Data Access**: Data Access (veri erişim) katmanı, sistemin kullandığı verilere erişilen katmandır. Bu katman kompleks bir veritabanı da, basit bir JSON dosyası ve fonksiyonları da olabilir. API bağlantıları vb. gelişmiş veri sistemleri bulundurabilir. Business'tan gelen kararları uygulayarak **CRUD** (Create, Read, Update, Delete) işlemleri burada uygulanır.
+    * **Business**: Programın bütün mantıksal işlerinin yapıldığı katmandır. Hesaplamalar, veri işlemeler, doğrulamalar vb. hep bu katmanda yapılır. Verilerle ilgili kararlar bu katmandan Data Access'e gönderilir, kullanıcıya gösterilecek veriler de bu katmandan Presentation'a gönderilir.
+    * **Presentation**: Programın kullanıcı ile iletişimde olan katmanı bu katmandır. Kullanıcı arayüzü, girdi kutuları vb. hep bu katmanda yer alır. Kullanıcının girdilerini Business katmanına gönderir ve Business katmanından gelen verileri kullanıcıya gösterir. Yalnız bu katman kullanıcı sadece kullanıcı ile iletişime geçmek zorunda değil. Yapılan program bir API olsaydı bu katman onun erişim noktası da olabilirdi.
+        * Katman bağımlılığı tek yönlüdür: *`Presentation -> Business -> Data Access`*
  
 * **Service and Repository pattern**: Service and Repository pattern, önceden gördüğümüz MVC (Model View Controller) modelinin biraz daha basit haline benzer. View katmanı yoktur ve maksatı üst seviye kodun alt seviye kodların nasıl çalıştığıyla ilgilenmemesidir.
-* **Service Katmanı**: Service katmanı bütün mantık, karar ve işlemlerin yapıldığı katmandır. Veri üzerinde yapılacak işlemlere bu katmanda karar verilir ve gerekli emirler Repository katmanına gönderilir.
-* **Repository Katmanı**: Repository, veritabanı (ya da JSON gibi bir depolama) katmanıdır. Service katmanından veri ile ilgili gelen CRUD taleplerini (bazen de daha karmaşık ve büyük talepleri) yerine getirir.
-* Bu katman sistemi sayesinde Controller gibi üst seviye katman kodları iyice alt seviye kodlardan uzaklaşır. Bu sayede üst seviye kod yazmak daha temiz, kolay ve test edilebilir hale gelir.
+    * **Service Katmanı**: Service katmanı bütün mantık, karar ve işlemlerin yapıldığı katmandır. Veri üzerinde yapılacak işlemlere bu katmanda karar verilir ve gerekli emirler Repository katmanına gönderilir.
+    * **Repository Katmanı**: Repository, veritabanı (ya da JSON gibi bir depolama) katmanıdır. Service katmanından veri ile ilgili gelen CRUD taleplerini (bazen de daha karmaşık ve büyük talepleri) yerine getirir.
+    * Bu katman sistemi sayesinde Controller gibi üst seviye katman kodları iyice alt seviye kodlardan uzaklaşır. Bu sayede üst seviye kod yazmak daha temiz, kolay ve test edilebilir hale gelir.
 </details>
 
 <details>
