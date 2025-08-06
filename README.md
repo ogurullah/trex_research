@@ -466,6 +466,52 @@
     * Bu kodun çıktısı "97 92 81" olacaktır.
 </details>
 
+<details>
+<summary>Code-First ve Database-First yaklaşımı nedir?</summary>
+
+* **Code-First**: Öncelikle kodun yazıldığı, veritabanının koda göre otomatik oluştuğu yaklaşımdır. .NET class'ları oluşturulur, Entity Framework Core ona göre veritabanı oluşturur. Esnektir, veri yapısı zaman içerisinde değiştirilebilir. 
+
+```
+    public class BloggingContext : DbContext
+    {
+        public DbSet<Blog> Blogs { get; set; } # blogs için tablo
+        public DbSet<Post> Posts { get; set; } # posts için tablo
+    }
+    
+    public class Blog
+    {
+        public int BlogId { get; set; }
+        public string Name { get; set; }
+    
+        public virtual List<Post> Posts { get; set; }
+    }
+    
+    public class Post
+    {
+        public int PostId { get; set; }
+        public string Title { get; set; }
+        public string Content { get; set; }
+    
+        public int BlogId { get; set; }
+        public virtual Blog Blog { get; set; }
+    }
+```
+
+* **Database-First**: Var olan bir veritabanı üzerine program oluşturulan yaklaşımdır. Tek tip bir veritabanı üzerinden ilerler. Gelecekte veritabanı değişirse ona yönelik olan kodlar da değişmek durumunda kalır.
+
+| Özellik | Code-First | Database-First |
+|:-------:|:----------:|:--------------:|
+|Başlangıç|Class'lar üzerinden veritabanı oluşur.|Var olan veritabanına göre class'lar yazılır.|
+|Veritabanı Oluşumu|EF migration ile otomatik oluşturur.|EF mevcurt veritabanından class'ları üretir.|
+|Güncelleme|Kod değişince migration ile veritabanı güncellenir.|Veritabanı değişince kod scaffold edilir.|
+
+* **Scaffold**: Bir komutla kodu otomatik şekilde yeni veritabanına uygun hale getirmek demektir.
+    `Scaffold-DbContext "Server=.;Database=MyDB;Trusted_Connection=True;" Microsoft.EntityFrameworkCore.SqlServer`
+
+
+
+</details>
+
 
 
 
