@@ -569,6 +569,23 @@
     * `Scaffold-DbContext "Server=.;Database=MyDB;Trusted_Connection=True;" Microsoft.EntityFrameworkCore.SqlServer`
 </details>
 
+# 6. Güvenlik ve Performans
+
+<details>
+<summary>Authentication vs Authorization nedir?</summary>
+
+* **Authentication**: Bir kullanıcının kim olduğunu doğrulama işlemine denir.
+    * Çeşitli yöntemlerle kullanıcının kim olduğu belirlenir. Şifre, güvenlik soruları, biyometrik tarama vb. yöntemler buna örnektir.
+    * 
+* **Authorization**: Kim olduğu doğrulanmış kullanıcının hangi özelliklere erişimi olduğunun izinlendirilmesi aşamasıdır.
+
+| Authentication | Authorization |
+|:--------------:|:-------------:|
+|Şifre, güvenlik soruları, biyometrik tarama vb. yöntemler kullanılır.|Kurallara bakarak kullanıcının hangi izinlere sahip olduğunu belirlerç|
+|Genelde Authorization'dan önce yapılır.|Genelde Authentication'dan sonra yapılır.|
+|Genelde ID Token kullanılır.|Genelde Access Token kullanılır.|
+
+</details>
 
 
 
