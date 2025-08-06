@@ -448,16 +448,16 @@
     * LINQ direkt C# içinde sorgu yazmamıza olanak sağlar.
 
         ```
-        // Specify the data source.
+        // Veri kaynağı
         int[] scores = [97, 92, 81, 60];
         
-        // Define the query expression.
+        // Sorgu ifadesi
         IEnumerable<int> scoreQuery =
             from score in scores
             where score > 80
             select score;
         
-        // Execute the query.
+        // Sorguyu çalıştırma
         foreach (var i in scoreQuery)
         {
             Console.Write(i + " ");
