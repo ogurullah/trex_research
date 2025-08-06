@@ -389,9 +389,27 @@
             *  `DROP` Var olan bir veritabanını nesnesini siler.
         * **DML (Data Manipulation Language)**: Veri ile ilgili komutlar:
             * `SELECT` Var olan bir veritabanı nesnesinin içeriklerini okur.
+                * `SELECT * FROM Users` Bütün kullanıcıları listeler.
             * `INSERT` Var olan bir veritabanı nesnesine yeni veri ekler.
+                ```
+                    INSERT INTO Users(Name, Age)
+                    VALUES('Oguz', 19)
+                ```
+                * İsmi 'Oguz' yaşı 19 olan yeni bir kullanıcı ekler.
             * `UPDATE` Var olan bir veritabanı nesnesinin içindeki bir veriyi değiştirir.
+                ```
+                    UPDATE Users
+                    SET Age = 26
+                    WHERE UserID = 1;
+                ```
+                * Kullanıcı no 1 olan kullanıcının yaşını 26 yapar.
             * `DELETE` Var olan bir veritabanı nesnesinin içindeki bir veriyi siler.
+                ```
+                    DELETE FROM Users
+                    WHERE UserID = 3;
+                ```
+                * Kullanıcı no 3 olan kullanıcıyı veritabanından siler.
+                * WHERE yazılmazsa bütün tablo silinir.
         * **DCL (Data Control Language)**: Yetkilendirme ile ilgili komutlar:
             * `GRANT` Kullanıcıya yeni bir yetki verir.
             * `REVOKE` Kullanıcıye verilmiş bir yetkiyi geri alır.
@@ -464,6 +482,45 @@
         }
         ```
     * Bu kodun çıktısı "97 92 81" olacaktır.
+
+    * LINQ kodları ve SQL karşılıkları:
+        * `var result = users.Select(u => u);`
+        * `SELECT * FROM Users`
+            * Bu iki kod da aynı işi yapar, bütün kullanıcıları seçer.
+         
+        * `INSERT` LINQ'te doğrudan yoktur. Bu yüzden `add` metodu ile ekleme yapılır.
+          ```
+          users.Add(new User { Name = "Oguz", Age = 19 });
+          context.SaveChanges();
+          ```
+          ```
+          INSERT INTO Users(Name, Age)
+          VALUES('Oguz', 19);
+          ```
+            * Bu iki kod da ismi 'Oguz' yaşı 19 olan yeni bir kullanıcı ekler.
+        * `UPDATE` de LINQ'te doğrudan yoktur. Bu yüzden güncelleme yapıp `SaveChanges()` kullanılır.
+          ```
+          var user = users.First(u => u.UserID == 1);
+          user.Age = 26;
+          context.SaveChanges();
+          ```
+          ```
+          UPDATE Users
+          SET Age = 26
+          WHERE UserID = 1;
+          ```
+            * Bu iki kod da kullanıcı no 1 olan kullanıcının yaşını 26 yapar.
+        * `DELETE` de LINQ'te doğrudan yoktur. Entity Framework Core'dan `Remove` kullanılır.
+          ```
+          var user = users.First(u => u.UserID == 3);
+          users.Remove(user);
+          context.SaveChanges();
+          ```
+          ```
+          DELETE FROM Users
+          WHERE UserID = 3;
+          ```
+            * Bu iki kod da kullanıcı no 3 olan kullanıcıyı veritabanından siler.
 </details>
 
 <details>
@@ -507,9 +564,6 @@
 
 * **Scaffold**: Bir komutla kodu otomatik şekilde yeni veritabanına uygun hale getirmek demektir.
     * `Scaffold-DbContext "Server=.;Database=MyDB;Trusted_Connection=True;" Microsoft.EntityFrameworkCore.SqlServer`
-
-
-
 </details>
 
 
