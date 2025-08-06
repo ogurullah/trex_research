@@ -430,16 +430,40 @@
         ```
     * Farklı veritabanları arasında geçiş yapmayı kolaylaştırır.
     * Yazması ve okuması çok kolay bir koda olanak sağlar.
-    * Ancak bazı karmaşık sorguları desteklemeyebilir, performansı da ham SQL komutu yazmaktan daha yavaştır.
-* **Entity Framework Core**: EF Core, Microsoft tarafından geliştirilmiş, C# kodlarını veritabanı tablolarına geçirebilmeye yarayan bir yazılım çatısıdır (framework). Çoklu platformu destekler. LINQ destekler. Veri değişikliklerini otomatik takip eder. DbContext kullanır.
+    * Ancak bazı karmaşık sorguları (çok tablo join'leri vb.) desteklemeyebilir, performansı da ham SQL komutu yazmaktan daha yavaştır.
+* **Entity Framework Core**: EF Core, Microsoft tarafından geliştirilmiş, C# entity'lerini veritabanı tablolarına geçirebilmeye yarayan bir yazılım çatısıdır (framework). Çoklu platformu destekler. LINQ destekler. Veri değişikliklerini otomatik takip eder. DbContext kullanır.
     * Migration özelliği sayesinde otomatik veritabanı eşitleme desteği sunar. Sürüm kontrolü sağlar.
 </details>
 
 <details>
 <summary>DbContext nedir, nasıl kullanılır?</summary>
 
-* **DbContext**: Veritabanı ile C# arasındaki köprüdür. Bir oturum açarak veritabanı ile etkileşime geçer. C# class'ları, entity'ler, veritabanı tablolarına geçirilir ve özellikleri tabloların sütunlarına yazılır.
-    * Tablolar `DbSet<T>` ile temsil edilir.
+* **DbContext**: Veritabanı ile C# arasındaki köprüdür. Veritabanıyla tek bir oturum açarak etkileşime geçer. C# class'ları, entity'ler, veritabanı tablolarına geçirilir ve özellikleri tabloların sütunlarına yazılır.
+</details>
+
+<details>
+<summary>LINQ nedir? En çok kullanılan LINQ ifadeler</summary>
+
+* **LINQ (Language Integrated Query)**: C# ve .NET'in SQL tarzında veri sorgulama ve manipülasyonu yapmaya yarayan aracıdır. (Dil Entegrasyonlu Sorgulama)
+    * LINQ direkt C# içinde sorgu yazmamıza olanak sağlar.
+
+        ```
+        // Specify the data source.
+        int[] scores = [97, 92, 81, 60];
+        
+        // Define the query expression.
+        IEnumerable<int> scoreQuery =
+            from score in scores
+            where score > 80
+            select score;
+        
+        // Execute the query.
+        foreach (var i in scoreQuery)
+        {
+            Console.Write(i + " ");
+        }
+        ```
+    * Bu kodun çıktısı "97 92 81" olacaktır.
 </details>
 
 
