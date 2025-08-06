@@ -506,7 +506,7 @@
 |Güncelleme|Kod değişince migration ile veritabanı güncellenir.|Veritabanı değişince kod scaffold edilir.|
 
 * **Scaffold**: Bir komutla kodu otomatik şekilde yeni veritabanına uygun hale getirmek demektir.
-    `Scaffold-DbContext "Server=.;Database=MyDB;Trusted_Connection=True;" Microsoft.EntityFrameworkCore.SqlServer`
+    * `Scaffold-DbContext "Server=.;Database=MyDB;Trusted_Connection=True;" Microsoft.EntityFrameworkCore.SqlServer`
 
 
 
