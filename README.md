@@ -424,16 +424,22 @@
 * **ORM (Object Relational Mapping)**: Nesne ilişkisel eşleme, obje tabanlı programlama ile (object oriented programming - OOP) ilişkisel veritabanları (Relational Database) arasında kolay bağlantı sağlar.
     * OOP dillerde veriler class ve object türlerinde tutulur. ORM'nin görevi, ilişkisel veritabanındaki satır ve sütunları gerekli class ve object'lere eşlemektir.
     * Hiç SQL komutu yazmadan veritabanı kullanmaya yarar.
+        ```
+            var users = context.Users.Where(u => u.Age > 18).ToList();
+            // SELECT * FROM Users WHERE Age > 18
+        ```
     * Farklı veritabanları arasında geçiş yapmayı kolaylaştırır.
     * Yazması ve okuması çok kolay bir koda olanak sağlar.
     * Ancak bazı karmaşık sorguları desteklemeyebilir, performansı da ham SQL komutu yazmaktan daha yavaştır.
 * **Entity Framework Core**: EF Core, Microsoft tarafından geliştirilmiş, C# kodlarını veritabanı tablolarına geçirebilmeye yarayan bir yazılım çatısıdır (framework). Çoklu platformu destekler. LINQ destekler. Veri değişikliklerini otomatik takip eder. DbContext kullanır.
+    * Migration özelliği sayesinde otomatik veritabanı eşitleme desteği sunar. Sürüm kontrolü sağlar.
 </details>
 
 <details>
 <summary>DbContext nedir, nasıl kullanılır?</summary>
 
-* **DbContext**: Bir oturum açarak veritabanı ile etkileşime geçmeye yarar. C# class'ları, entity'ler, veritabanı tablolarına geçirilir ve özellikleri tabloların sütunlarına yazılır.
+* **DbContext**: Veritabanı ile C# arasındaki köprüdür. Bir oturum açarak veritabanı ile etkileşime geçer. C# class'ları, entity'ler, veritabanı tablolarına geçirilir ve özellikleri tabloların sütunlarına yazılır.
+    * Tablolar DbSet<T> ile temsil edilir.
 </details>
 
 
