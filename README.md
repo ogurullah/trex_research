@@ -579,10 +579,15 @@
 
 | Authentication | Authorization |
 |:--------------:|:-------------:|
-|Şifre, güvenlik soruları, biyometrik tarama vb. yöntemler kullanılır.|Kurallara bakarak kullanıcının hangi izinlere sahip olduğunu belirlerç|
+|Şifre, güvenlik soruları, biyometrik tarama vb. yöntemler kullanılır.|Kurallara bakarak kullanıcının hangi izinlere sahip olduğunu belirlenir.|
 |Genelde Authorization'dan önce yapılır.|Genelde Authentication'dan sonra yapılır.|
 |Genelde ID Token kullanılır.|Genelde Access Token kullanılır.|
+</details>
 
+<details>
+<summary>JWT (JSON Web Token) nedir, nasıl çalışır?</summary>
+
+* test
 </details>
 
 
