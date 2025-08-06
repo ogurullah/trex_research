@@ -439,7 +439,7 @@
 <summary>DbContext nedir, nasıl kullanılır?</summary>
 
 * **DbContext**: Veritabanı ile C# arasındaki köprüdür. Bir oturum açarak veritabanı ile etkileşime geçer. C# class'ları, entity'ler, veritabanı tablolarına geçirilir ve özellikleri tabloların sütunlarına yazılır.
-    * Tablolar DbSet<T> ile temsil edilir.
+    * Tablolar `DbSet<T>` ile temsil edilir.
 </details>
 
 
