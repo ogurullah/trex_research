@@ -407,7 +407,7 @@
 * **İlişkisel Veritabanı (Relational Database)**:
     * Verileri bir tablo içerisinde depolar. Şemalıdır.
     * ACID işlemlerini destekler (atomity, consistency, isolation, durability)
-        * *ACID özellikleri, verilerin veritabanından bir sorun olsa dahi uygun bir biçimde ayrıldığını garantiler.
+        * *ACID özellikleri, verilerin veritabanından bir sorun olsa dahi uygun bir biçimde ayrıldığını garantiler.*
     * Karmaşık sorgu işlemlerini destekler.
     * MySQL, Oracle vb. örnektir.
 * **İlişkisel Olmayan Veritabanı (Nonrelational Database)**:
@@ -421,7 +421,19 @@
 <details>
 <summary>ORM nedir? Entity Framework Core nedir?</summary>
 
-* test
+* **ORM (Object Relational Mapping)**: Nesne ilişkisel eşleme, obje tabanlı programlama ile (object oriented programming - OOP) ilişkisel veritabanları (Relational Database) arasında kolay bağlantı sağlar.
+    * OOP dillerde veriler class ve object türlerinde tutulur. ORM'nin görevi, ilişkisel veritabanındaki satır ve sütunları gerekli class ve object'lere eşlemektir.
+    * Hiç SQL komutu yazmadan veritabanı kullanmaya yarar.
+    * Farklı veritabanları arasında geçiş yapmayı kolaylaştırır.
+    * Yazması ve okuması çok kolay bir koda olanak sağlar.
+    * Ancak bazı karmaşık sorguları desteklemeyebilir, performansı da ham SQL komutu yazmaktan daha yavaştır.
+* **Entity Framework Core**: EF Core, Microsoft tarafından geliştirilmiş, C# kodlarını veritabanı tablolarına geçirebilmeye yarayan bir yazılım çatısıdır (framework). Çoklu platformu destekler. LINQ destekler. Veri değişikliklerini otomatik takip eder. DbContext kullanır.
+</details>
+
+<details>
+<summary>DbContext nedir, nasıl kullanılır?</summary>
+
+* **DbContext**: Bir oturum açarak veritabanı ile etkileşime geçmeye yarar. C# class'ları, entity'ler, veritabanı tablolarına geçirilir ve özellikleri tabloların sütunlarına yazılır.
 </details>
 
 
