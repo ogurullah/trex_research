@@ -355,7 +355,20 @@
 * **Domain, Application, Infrastructure, API katmanları**:
     * ??
 
-* Startup.cs ??
+* **Bağımlılıkların dışa akması ilkesi (Dependency Inversion Principle)**:
+    * DIP, karmaşık işleri üstlenen üst düzey modüllerin alt düzey modüllerdeki değişikliklerden direkt olarak etkilenmemesi gerektiğini savunur. DIP'e göre üst düzey modüller alt düzey modüllere direkt olarak bağımlı olamaz. Ancak ikisi de ortak soyutlamalara (arayüz vb.) bağlı olabilir. Bu sayede detaylar birbirine değil soyutlamalara bağlanmış olur. Bu prensip sürdürülebilir ve temiz kod yazımını destekler.
+
+* **Startup.cs Middleware**:
+    * Middleware, istek (request) ve yanıt (response) arasına girip belirli bir iş yapan yazılım parçasına denir. Birden fazla Middleware uç uca eklenerek bir middleware pipeline oluşturulabilir. Middleware'ların sırası önemlidir. İstekler her zaman bir yönde, yanıtlar da o yönün tersinde hareket edecektir. İlk middleware, isteği ilk karşılayıp yanıtı son gönderen olur.
+        * Bir middleware pipeline örneği:
+          ```
+            ExceptionHandler # hata ayıklama
+            HttpsRedirection # güvenli kanala yönlenme
+            StaticFiles      # dosya çağrıları vb. controller'a gitmeden cevaplanabilsin
+            Routing          # endpoint'i bulur
+            Authentication   # gidilecek endpoint'e göre doğrulama&yetkilendirme
+            Controller       # hedef
+          ```
 </details>
 
 ## 5. Veritabanı ve ORM
@@ -370,21 +383,43 @@
     * *Deklaratif* bir dildir, yani ne istediğini yazdığında sana onu verir, nasıl yapılacağı ile arkaplanda kendisi ilgilenir.
     * 4 ayrı komut türü vardır:
         * **DDL (Data Definition Language)**: Yapı ile ilgili komutlar:
-            * CREATE, ALTER, DROP
-            * #bunlar açıklanacak
+        * *İşlemler commit edilene kadar transaction olarak kalır.*
+            * `CREATE` Yeni bir veritabanı nesnesi (tablo vb.) oluşturur.
+            * `ALTER` Var olan bir veritabanı nesnesi üzerinde şekil değişikliği (sütün ekleme, silme vb.) yapar.
+            *  `DROP` Var olan bir veritabanını nesnesini siler.
         * **DML (Data Manipulation Language)**: Veri ile ilgili komutlar:
-            * SELECT, INSERT, UPDATE, DELETE
-            * #bunlar açıklanacak
+            * `SELECT` Var olan bir veritabanı nesnesinin içeriklerini okur.
+            * `INSERT` Var olan bir veritabanı nesnesine yeni veri ekler.
+            * `UPDATE` Var olan bir veritabanı nesnesinin içindeki bir veriyi değiştirir.
+            * `DELETE` Var olan bir veritabanı nesnesinin içindeki bir veriyi siler.
         * **DCL (Data Control Language)**: Yetkilendirme ile ilgili komutlar:
-            * GRANT, REVOKE
-            * #bunlar açıklanacak
+            * `GRANT` Kullanıcıya yeni bir yetki verir.
+            * `REVOKE` Kullanıcıye verilmiş bir yetkiyi geri alır.
         * **TCL (Transaction Control Language)**: İşlemlerle ilgili komutlar:
-            * COMMIT, ROLLBACK
-            * #bunlar açıklanacak
+        * *Transactionlar üzerinde değişiklik yapar.*
+            * `COMMIT` Yapılan tüm işlemleri kalıcı hale getirir.
+            * `ROLLBACK` Commit edilmemiş işlemleri geri alır.
 </details>
 
 <details>
 <summary>İlişkisel ve ilişkisel olmayan veritabanları arasındaki farklar</summary>
+
+* **İlişkisel Veritabanı (Relational Database)**:
+    * Verileri bir tablo içerisinde depolar. Şemalıdır.
+    * ACID işlemlerini destekler (atomity, consistency, isolation, durability)
+        * *ACID özellikleri, verilerin veritabanından bir sorun olsa dahi uygun bir biçimde ayrıldığını garantiler.
+    * Karmaşık sorgu işlemlerini destekler.
+    * MySQL, Oracle vb. örnektir.
+* **İlişkisel Olmayan Veritabanı (Nonrelational Database)**:
+    * Verileri birçok şekilde depolayabilir (key value pair, grafik vb.)
+    * Şemasızdır. Esnektir ve biçimi sürekli değiştirilebilir.
+    * ACID işlemlerini desteklemez.
+    * Büyük miktarda veriyi hızlı şekilde işlemek için uygundur ancak karmaşık sorguları desteklemez.
+    * MondoDB örnektir.
+</details>
+
+<details>
+<summary>ORM nedir? Entity Framework Core nedir?</summary>
 
 * test
 </details>
