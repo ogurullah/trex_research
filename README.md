@@ -353,7 +353,10 @@
 * **Clean Architecture**: Clean Architecture, Uncle Bob tarafından önerilen, business (iş) kodlarını veritabanından, frameworklerden ve arayüzden tamamen bağımsız hale getirmeyi öneren yazılım mimarisidir. Temel fikir, yazılım katmanlarında bağımlılığın her zaman dıştan içe olması gerektiği ve iç katmanların dış katmanlara bağlı olmaması gerektiğidir. Örneğin, ham kod framework'e bağlı olmamalıdır. Bu sayede kod daha kolay test edilebilir ve daha temiz olur.
 
 * **Domain, Application, Infrastructure, API katmanları**:
-    * ??
+    * **Domain**: En iç katman. Başka bir katmana bağlılığı yok. Temel iş modelleri (class'lar, fonksiyonlar vb.) içerir. Dış katmanlar hakkında bilgisi yoktur.
+    * **Application**: Domain'i kullanarak iş akışını yönetir. Gelen isteğin hangi adımlardan geçeceğini belirler. Repository ve servis arayüzleri sayesinde Infrastructure ile haberleşir.
+    * **Infrastructure**: Dış dünya ile iletişim sağlanır. Application'dan gelen talimatlar dahilinde veritabanında değişiklik yapma, log tutma vb. işlemlerle ilgilenir. Örneğin domain'deki nesneyi alır ve veritabanına kaydeder.
+    * **API**: Presentation katmanıdır. Kullanıcı ve arkaplan arasında düzenli veri akışına olanak sağlar.
 
 * **Bağımlılıkların dışa akması ilkesi (Dependency Inversion Principle)**:
     * DIP, karmaşık işleri üstlenen üst düzey modüllerin alt düzey modüllerdeki değişikliklerden direkt olarak etkilenmemesi gerektiğini savunur. DIP'e göre üst düzey modüller alt düzey modüllere direkt olarak bağımlı olamaz. Ancak ikisi de ortak soyutlamalara (arayüz vb.) bağlı olabilir. Bu sayede detaylar birbirine değil soyutlamalara bağlanmış olur. Bu prensip sürdürülebilir ve temiz kod yazımını destekler.
