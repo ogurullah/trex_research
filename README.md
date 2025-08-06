@@ -575,7 +575,6 @@
 <summary>Authentication vs Authorization nedir?</summary>
 
 * **Authentication**: Bir kullanıcının kim olduğunu doğrulama işlemine denir.
-    * Çeşitli yöntemlerle kullanıcının kim olduğu belirlenir. Şifre, güvenlik soruları, biyometrik tarama vb. yöntemler buna örnektir.
 * **Authorization**: Kim olduğu doğrulanmış kullanıcının hangi özelliklere erişimi olduğunun izinlendirilmesi aşamasıdır.
 
 | Authentication | Authorization |
