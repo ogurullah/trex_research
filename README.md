@@ -651,6 +651,21 @@ eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9                          #header
 |Güvenlik ve karmaşıklık|Güvenli ama karmaşık|Daha basit ama potansiyel güvenlik açıkları var|
 |Özel anahtar (client secret) zorunluluğu|Her durumda kullanılır|Opsiyonel|
 |Yetkilendirme yöntemleri|Sınırlıdır|Esnek (authorization code, implicit vb.)|
+
+* **OpenID**: OpenID merkezi olmayan ve açık bir kimlik doğrulama protokolüdür. Kullanıcıların üçüncü parti kimlik sağlayıcı (IDP) hizmetlerini kullanarak bu hizmetle çalışan siteler (RP - Relying Parties) tarafından onaylanmalarını sağlar. Amacı, kullanıcının internetteki kimliğini tek bir kimlik sağlayıcı ile kanıtlamasını sağlamaktır (SSO - Single Sign On). Tek bir OpenID girişi ile OpenID desteği veren bütün sitelere girmeye olanak sağlar. Kullanıcı deneyimini kolaylaştırır.
+
+* **OpenID Connect**: OAuth 2.0'ın bir uzantısıdır. Amacı doğrulama ve yetkilendirme süreçlerini standartlaştırmaktır. OAuth 2.0 sadece yetkilendirme ile ilgilenirken OpenID Connect işin içine authentication'ı da dahil eder, kimlik doğrulama yapabilir, bunun için JWT kullanabilir.
+    * OAuth 2.0 uzantısı olduğu için, yetkilendirme yöntemleri ve erişim token'lerini kullanabilir.
+    * Modern uygulamalarda sıklıkla kullanılır.
+
+| Özellik |OAuth 2.0 | OpenID | OpenID Connect |
+|:-------:|:--------:|:------:|:--------------:|
+|Protokol|Yetkilendirme|Doğrulama|Doğrulama + Yetkilendirme|
+|Amaç|Uygulamanın kullanıcı adına verilere erişmesi (yetkilendirme)|Kimlik doğrulaması|Evrensel kimlik doğrulama ve yetkilendirme|
+|Tokenler|Erişim ve yenileme tokenleri|Token yok, bilgi taşımaz|Erişim ve kimlik tokenleri|
+|SSO|Yok|Var|Var|
+
+
 </details>
 
 
