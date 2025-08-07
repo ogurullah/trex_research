@@ -598,6 +598,7 @@ eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9                          #header
 * **Header**: Header kısmı, JWT'nin sign'lanırken kullandığı algoritmayı ve token türünü içerir.
     * **`alg`**: HS256, RS256 vb. algoritmalar kullanılır.
     * **`typ`**: Token türünü belirtir. JSON Web Token'lerde bu her zaman JWt olacaktır.
+
     ```
     {
         "alg": "HS256",
@@ -610,6 +611,7 @@ eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9                          #header
     * **`iat`**: Token'in ne zaman üretildiğini belirtir.
     * **`nbf`**: Not before, token'in ne zamandan sonra kullanılabileceğini belirtir.
     * **`exp`**: Expiration, token'in ömrünün ne zaman biteceğini belirtir.
+
     ```
     {
       "sub": "1dfee8d8-98a5-4314-b4ae-fb55c4b18845",
