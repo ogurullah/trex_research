@@ -591,9 +591,9 @@
 * Header, payload ve signature olmak üzere 3 parçadan oluşur.
 * Örnek bir JWT:
 ```
-eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9
-.eyJ1c2VySWQiOjEyMywicm9sZSI6ImFkbWluIiwiaWF0IjoxNjg4MDAwMDB9
-.RQ9lL7w-KaB6P3c5lyWrbQ1X0r7fDeDN4uX2uY6K6rE
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9                          #header
+.eyJ1c2VySWQiOjEyMywicm9sZSI6ImFkbWluIiwiaWF0IjoxNjg4MDAwMDB9 #payload
+.RQ9lL7w-KaB6P3c5lyWrbQ1X0r7fDeDN4uX2uY6K6rE                  #signature
 ```
 </details>
 
