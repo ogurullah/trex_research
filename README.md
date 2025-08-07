@@ -596,20 +596,32 @@ eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9                          #header
 .RQ9lL7w-KaB6P3c5lyWrbQ1X0r7fDeDN4uX2uY6K6rE                  #signature
 ```
 * **Header**: Header kısmı, JWT'nin sign'lanırken kullandığı algoritmayı ve token türünü içerir.
+    * **`alg`**: HS256, RS256 vb. algoritmalar kullanılır.
+    * **`typ`**: Token türünü belirtir. JSON Web Token'lerde bu her zaman JWt olacaktır.
     ```
     {
         "alg": "HS256",
         "typ": "JWT"
     }
     ```
-    * **`alg`**: HS256, RS256 vb. algoritmalar kullanılır.
-    * **`typ`**: Token türünü belirtir. JSON Web Token'lerde bu her zaman JWt olacaktır.
 * **Payload**: Token'in içerikleri, taşıdığı bilgi bu kısımda bulunur. Bazı önerilen standart başlıkları vardır.
     * **`sub`**: Subject, token'in ilgili olduğu kullanıcı ya da oturumu belirtir.
     * **`aud`**: Audience, token'in hedef kitlesini belirtir. Örneğin programın beta kullanıcı kitlesini belirtebilir.
     * **`iat`**: Token'in ne zaman üretildiğini belirtir.
     * **`nbf`**: Not before, token'in ne zamandan sonra kullanılabileceğini belirtir.
     * **`exp`**: Expiration, token'in ömrünün ne zaman biteceğini belirtir.
+    ```
+    {
+      "sub": "1dfee8d8-98a5-4314-b4ae-fb55c4b18845",
+      "aud": "https://ogurullah.com",
+      "email": "oguzkagancelik16@gmail.com",
+      "name": "Oguz Kagan Celik",
+      "role": "ADMIN",
+      "iat": 1598607423,
+      "nbf": 1598607423,
+      "exp": 1598607723
+    }
+    ```
 * **Signature**: Token'in header ve payload bölgelerinden ve bir gizli anahtardan kriptografik bir algoritmayla oluşturulan imzadır. Token'ler kontrol edilirken bu imza da doğrulandığı için bir token'in içeriği ile oynanırsa imzalar sayesinde bu fark edilir ve token reddedilebilir.
 
 * JWT'ler **stateless** çalışır. Doğrulama işlemlerini sunucuda ek herhangi bir veri tutmaya gerek kalmadan gerçekleştirebilir. Bu veri trafiğini büyük ölçüde azaltır ve kodun mimarisini basitleştirir. JWT bütün bunları yaparken güvenlikten de ödün vermediği için iyi bir standart seçeneğidir. 
