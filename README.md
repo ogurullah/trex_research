@@ -611,7 +611,6 @@ eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9                          #header
     * **`iat`**: Token'in ne zaman üretildiğini belirtir.
     * **`nbf`**: Not before, token'in ne zamandan sonra kullanılabileceğini belirtir.
     * **`exp`**: Expiration, token'in ömrünün ne zaman biteceğini belirtir.
-
     ```
     {
       "sub": "1dfee8d8-98a5-4314-b4ae-fb55c4b18845",
@@ -627,6 +626,31 @@ eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9                          #header
 * **Signature**: Token'in header ve payload bölgelerinden ve bir gizli anahtardan kriptografik bir algoritmayla oluşturulan imzadır. Token'ler kontrol edilirken bu imza da doğrulandığı için bir token'in içeriği ile oynanırsa imzalar sayesinde bu fark edilir ve token reddedilebilir.
 
 * JWT'ler **stateless** çalışır. Doğrulama işlemlerini sunucuda ek herhangi bir veri tutmaya gerek kalmadan gerçekleştirebilir. Bu veri trafiğini büyük ölçüde azaltır ve kodun mimarisini basitleştirir. JWT bütün bunları yaparken güvenlikten de ödün vermediği için iyi bir standart seçeneğidir. 
+</details>
+
+<details>
+<summary>OAuth, OAuth2.0, OpenIddict, OpenID nedir? Aralarındaki ilişki</summary>
+
+* **OAuth**: OAuth (Open Authorization), birçok platformda kullanılan bir yetkilendirme çatısıdır (authorization framework). Bir aplikasyonun başka bir aplikasyonda var olan hesabınızla şifrenize erişmeden belirli yetki taleplerine izin vermenize yarar. Bunu kullanıcı bilgilerini açık etmeden üçüncü parti servislere erişim token'leri göndererek yapar.
+    * Dikkat edilmesi gerekir ki, OAuth bir authentication (doğrulama) protokolü değil, bir authorization (yetkilendirme) protokolüdür, yani hesap-kullanıcı eşleşmesi hakkında bir fikir sahibi değildir, yalnızca zaten doğrulanmış ve giriş yapılmış hesaplardaki yetki düzenlemesinden sorumludur.
+ 
+* **OAuth 2.0**: OAuth 1.0'ın 2012 yılında yerini alan, daha kolay ve kullanıcı dostu olan versiyonu OAuth 2.0'dır. OAuth 1.0'a kıyasla farklı yetkilendirme yöntemi seçenekleriyle gelir.
+    * **Authorization Code**: Genelde web uygulamalarında kullanılır. İstemci yetkilendirme sunucusundan bir yetkilendirme kodu alır ve bir erişim tokeni ile bu kodu takas eder.
+    * **Implicit**: İstemci tarafının güvenli bir şekilde client secret tutamadığı durumlarda kullanılır.
+    * **Client credentials**: Kullanıcının değil direkt istemcinin kaynağa ihtiyaç duyduğu durumlarda kullanılır. Sunucu-sunucu arası etkileşimlerde yaygındır.
+    * **Refresh token**: Önceki token'in süresi bittiğinde kullanıcının tekrar yetkilendirme yapmasına gerek kalmadan erişim token'i göndermek için kullanılır.
+    * **Resource owner password credentials**: Kaynak sahibinin istemciye çok güven duyduğu durumlar dışında kullanılması önerilmez. Kullanıcı bilgilerinin doğrudan aktarılması ile çalıştığı için güvenlik sorunu oluşturması olasıdır.
+ 
+    * **Token türleri**:
+        * **Access Token**: Kaynaklara erişim sağlar.
+        * **Refresh Token**: Erişim token'inin süresi geçtiğinde yenisini istemek için kullanılır.
+
+| Özellik | OAuth 1.0 | OAuth 2.0 |
+|:-------:|:---------:|:---------:|
+|Doğrulama Metodu|Kriptografik imza|Tokenler|
+|Güvenlik ve karmaşıklık|Güvenli ama karmaşık|Daha basit ama potansiyel güvenlik açıkları var|
+|Özel anahtar (client secret) zorunluluğu|Her durumda kullanılır|Opsiyonel|
+|Yetkilendirme yöntemleri|Sınırlıdır|Esnek (authorization code, implicit vb.)|
 </details>
 
 
