@@ -590,8 +590,8 @@
 * JSON Web Token, JSON tabanlı, kullanıcı doğrulaması (authentication) ve yetkilendirmesi (authorization) yapmak için kullanılan bir standarttır.
 * Header, payload ve signature olmak üzere 3 parçadan oluşur.
 * Örnek bir JWT:
-    ```  eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxZGZlZThkOC05OGE1LTQzMTQtYjRhZS1mYjU1YzRiMTg4NDUiLCJlbWFpbCI6ImFyaWVsQGNvZGluZ2x5LmlvIiwibmFtZSI6IkFyaWVsIFdlaW5iZXJnZXIiLCJyb2xlIjoiVVNFUiIsImlhdCI6MTU5ODYwODg0OCwiZXhwIjoxNTk4NjA5MTQ4fQ.oa3ziIZAoVFdn-97rweJAjjFn6a4ZSw7ogIHA74mGq0
-    ```
+```  eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxZGZlZThkOC05OGE1LTQzMTQtYjRhZS1mYjU1YzRiMTg4NDUiLCJlbWFpbCI6ImFyaWVsQGNvZGluZ2x5LmlvIiwibmFtZSI6IkFyaWVsIFdlaW5iZXJnZXIiLCJyb2xlIjoiVVNFUiIsImlhdCI6MTU5ODYwODg0OCwiZXhwIjoxNTk4NjA5MTQ4fQ.oa3ziIZAoVFdn-97rweJAjjFn6a4ZSw7ogIHA74mGq0
+```
 </details>
 
 
