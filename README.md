@@ -664,8 +664,12 @@ eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9                          #header
 |Amaç|Uygulamanın kullanıcı adına verilere erişmesi (yetkilendirme)|Kimlik doğrulaması|Evrensel kimlik doğrulama ve yetkilendirme|
 |Tokenler|Erişim ve yenileme tokenleri|Token yok, bilgi taşımaz|Erişim ve kimlik tokenleri|
 |SSO|Yok|Var|Var|
+</details>
 
+<details>
+<summary>Performans artımı için ne yapılabilir? (AsNoTracking, IAsyncEnumerable, caching, profiling, redis)</summary>
 
+* test
 </details>
 
 
