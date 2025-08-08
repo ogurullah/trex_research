@@ -689,8 +689,20 @@ eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9                          #header
 <details>
 <summary>OWASP Top 10</summary>
 
-* **OWASP Top 10**: OWASP Top 10, web uygulamaları güvenliği ve yazılımcılar için standart bir farkındalık belgesidir. Web uygulamaları için var olan en kritik güvenlik açıklarını ele alır.
+* **OWASP Top 10**: OWASP Top 10, web uygulamaları güvenliği ve yazılımcılar için standart bir farkındalık belgesidir. Web uygulamaları için var olan en kritik güvenlik açıklarını ele alır. Yeni versiyonunun çıkış tarihi 2025 yaz sonu/sonbahar başı olmak üzere belirlenmiştir. En güncel versiyonu 2021 yılında çıkmıştır. Bir öncekisi de 2017 yılında çıkmıştı.
+
+* 2021 yılındaki en kritik 10 web uygulaması güvenlik sorunu:
     * **A01:2021 – Bozuk Erişim Kontrolü (Broken Access Control)**
+        * Erişim kontrolünde hatalar sebebiyle kullanıcılar erişememeleri gereken verilere erişme şansı yakalayabilirler. Örneğin sadece kullanıcı olarak giriş yapabilmesi gereken bir kişi programa admin olarak giriş yapıp veritabanına erişebilir. Önceki versiyondan bu yana erişim kontrolü açıkları beşinci sıradan birinci sıraya yükseldi. Test edilen uygulamaların %94'ünde bozuk erişim kontrolü tespit edildi. Şu an web uygulamalarında olan en yaygın güvenlik açığı bu.
+    * **A02:2021 - Kriptografik Hatalar (Cryptographic Failures)**
+        * Modüller arasında iletilen verilerin transfer sırasında okunmaması için şifrelenmesini sağlayan kriptografi sistemleri, bazen düzgün çalışmayarak iletimdeki hassas verilerin okunabilmesine olanak verebilir. Bu sorun üçüncü sıradan ikinci sıraya yükseldi. Önceki ismi hassas veri sızması idi, lakin bu ana sebepten çok bir semptomdu. Artık yeni hedef kriptografi hatalarına odaklanmak çünkü hassas verilere ulaşabilmeye genelde bu sebep olur.
+    * **A03:2021 - Enjeksiyon (Injection)**
+        * Kullanıcıdan gelen verilerin doğru tespit edilmediği, filtrelenmediği, temizlenmediği durumlarda kullanıcının web uygulaması için zararlı (veritabanına erişebilen vb.) komutlar girebilmesi demektir. İsim soyisim girdisi yapmak için ayrılmış kutucuklara zararlı SQL komutları girmek gibi yöntemlerle sistemin gizli verilerine erişilebiliyor.
+    * **A04:2021 - Güvensiz Dizayn (Insecure Design)**
+        * Bu kategori 2021 versiyonunda yeni açıldı. Web uygulamanın dizaynında güvenlik açıkları bulunması demektir. Genelde uygulamaların gereksinimlerinin (SR - Software Requirements) belirlenmesi aşamasında güvenlik açıkları ile ilgili yeterince beklenti olmamasından ve uygulamanın üretim aşamasında güvenlik testlerinin ve denetimlerinin yeterince yapılmamasından kaynaklanır. Kullanıcı girdileri uygulamanın frontend'den backend'e neredeyse her aşamasında filtrelenmeli ve doğrulanmalıdır.
+    * **A05:2021 - Güvenliği Yanlış Yapılandırma (Security Misconfiguration)**
+        * Sunucunun ve web uygulamanın izinlerinin, güvenlik protokollerinin ayarlanmamasından, test aşamalarında kullanılan default hesapların girili kalmasından, gereksiz açık port ve kapı bırakılmasından vb. gözden kaçan detaylardan ve sistemin belirli parçalarının güncellenmemesinden kaynaklanabilir.
+    * **A06:2021 – Zafiyet İçeren ve Güncel Olmayan Bileşenler (Vulnerable and Outdated Components)**
         * 
 </details>
 
