@@ -694,16 +694,38 @@ eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9                          #header
 * 2021 yılındaki en kritik 10 web uygulaması güvenlik sorunu:
     * **A01:2021 – Bozuk Erişim Kontrolü (Broken Access Control)**
         * Erişim kontrolünde hatalar sebebiyle kullanıcılar erişememeleri gereken verilere erişme şansı yakalayabilirler. Örneğin sadece kullanıcı olarak giriş yapabilmesi gereken bir kişi programa admin olarak giriş yapıp veritabanına erişebilir. Önceki versiyondan bu yana erişim kontrolü açıkları beşinci sıradan birinci sıraya yükseldi. Test edilen uygulamaların %94'ünde bozuk erişim kontrolü tespit edildi. Şu an web uygulamalarında olan en yaygın güvenlik açığı bu.
+        * **CSRF**:
+            * Kullanıcıyı link'e tıklaması için Sosyal Mühendislik yoluyla kullanıcıyı kandırmayla sunucuya kullanıcı için zararlı bir işlem talebi gönderir. Link'te kullanıcının bilgilerini çalmak, değiştirmek vb. etkinlikler için bütün HTTP talepleri hazırdır, hepsinin aktifleşip çalışması için yalnızca kullanıcının link'e tıklaması yeterlidir.
+        * **Broken Auth**:
+            * Otomatik kullanıcı girişi saldırılarından tek bir kişiyi hedef alan saldırılara kadar geniş bir yelpazeye hitap eder. Kullanıcının hesabına giriş yaptıktan sonra uygulama ile etkileşime girerken kullandığı oturum ID'sine erişmek vb. yöntemler de kullanırlar. Şifre püskürtme, kimlik bilgisi doldurma gibi önceden farklı platformların veritabanlarından çalınmış kullanıcı adı ve şifresi verilerini otomatik bir şekilde deneyerek hesaplara girmeye çalışırlar.
     * **A02:2021 - Kriptografik Hatalar (Cryptographic Failures)**
         * Modüller arasında iletilen verilerin transfer sırasında okunmaması için şifrelenmesini sağlayan kriptografi sistemleri, bazen düzgün çalışmayarak iletimdeki hassas verilerin okunabilmesine olanak verebilir. Bu sorun üçüncü sıradan ikinci sıraya yükseldi. Önceki ismi hassas veri sızması idi, lakin bu ana sebepten çok bir semptomdu. Artık yeni hedef kriptografi hatalarına odaklanmak çünkü hassas verilere ulaşabilmeye genelde bu sebep olur.
     * **A03:2021 - Enjeksiyon (Injection)**
-        * Kullanıcıdan gelen verilerin doğru tespit edilmediği, filtrelenmediği, temizlenmediği durumlarda kullanıcının web uygulaması için zararlı (veritabanına erişebilen vb.) komutlar girebilmesi demektir. İsim soyisim girdisi yapmak için ayrılmış kutucuklara zararlı SQL komutları girmek gibi yöntemlerle sistemin gizli verilerine erişilebiliyor.
+        * Kullanıcıdan gelen verilerin doğru tespit edilmediği, filtrelenmediği, temizlenmediği durumlarda kullanıcının web uygulaması için zararlı (veritabanına erişebilen vb.) komutlar girebilmesi demektir. SQL Injection, XSS bu duruma iyi örneklerdir.
+        * **SQL Injection**:
+            * Bir noktada SQL sorgularında kullanılacağı bilinen *string*'lere sistem için zararlı kodlar ekleme yoluyla yapılan saldırıdır.
+        * **XSS**:
+            * Cross Site Scripting Attack (XSS), siteler arası komut çalıştırma saldırıları, iyi huylu görünen bir web sayfasının içeriğine istemci taraflı komut olarak zararlı bir yazılım atması yoluyla gerçekleşen saldırılardır.
     * **A04:2021 - Güvensiz Dizayn (Insecure Design)**
         * Bu kategori 2021 versiyonunda yeni açıldı. Web uygulamanın dizaynında güvenlik açıkları bulunması demektir. Genelde uygulamaların gereksinimlerinin (SR - Software Requirements) belirlenmesi aşamasında güvenlik açıkları ile ilgili yeterince beklenti olmamasından ve uygulamanın üretim aşamasında güvenlik testlerinin ve denetimlerinin yeterince yapılmamasından kaynaklanır. Kullanıcı girdileri uygulamanın frontend'den backend'e neredeyse her aşamasında filtrelenmeli ve doğrulanmalıdır.
     * **A05:2021 - Güvenliği Yanlış Yapılandırma (Security Misconfiguration)**
         * Sunucunun ve web uygulamanın izinlerinin, güvenlik protokollerinin ayarlanmamasından, test aşamalarında kullanılan default hesapların girili kalmasından, gereksiz açık port ve kapı bırakılmasından vb. gözden kaçan detaylardan ve sistemin belirli parçalarının güncellenmemesinden kaynaklanabilir.
     * **A06:2021 – Zafiyet İçeren ve Güncel Olmayan Bileşenler (Vulnerable and Outdated Components)**
-        * 
+        * Güncellemeler genelde ek özellikler eklemenin yanında güvenlik açıklarını kapatan değişiklikler de yapar. Bu yüzden programları, framework'leri, kütüphaneleri vb. güncel tutmak güvenlik açısından önemlidir. Eski versiyonlar güvenlik açıkları bulundurabilirler. Yazılım parçalarını güncellemek, güncel versiyonların açıklarını yakalamak için testler yazmak, kullanılmayan parçaları kaldırmak vb. yöntemlerle bu güvenlik açığının önüne geçilebilir.
+    * **A07:2021 - Kimlik Tanımlama ve Doğrulama Hataları (Identification and Authentication Failures)**
+        * Bu güvenlik problemi ikinci sıradan yedinci sıraya kadar geriledi. Halen ilk onun içinde olmasına rağmen güncel standartlar bu güvenlik sorununu ortadan kaldırmaya oldukça yardımcı oluyor gibi görünüyor.
+        * Brute force saldırıları, otomatik saldırılar vb. saldırıları engelleyememekte, çok basit şifreleri kabul etmekte, kırması basit kriptografi algoritmaları kullanmakta, oturum ID'lerini saklayamamakta vb. olan bir sistem varsa bu güvenlik sorununun yaşanması oldukça olasıdır. Çok aşamalı doğrulama vb. ek sistemler kullanılarak bu güvenlik sorununun önüne geçilebilir.
+    * **A08:2021 – Yazılım ve Veri Bütünlüğü Hataları (Software and Data Integrity Failures)**
+        * Bu kategori de 2021 yılında ilk defa oluşturuldu. Yazılımların güncellenmelerinde, CI/CD pipeline'larında, dosya bütünlüğünün kontrol edilmemesine odaklanır. Güncellemelerin imzalı olması ve kontrol edilmesi gerekir. Bunu yapmayan sistemler güncelleme gibi görünen zararlı yazılımlara karşı savunmasızdır.
+    * **A09:2021 – Güvenlik Kayıtı ve Gözlemleme Hataları (Security Logging and Monitoring Failures)**
+        * Hatalı giriş yapma etkinliklikleri vb. gözlemlenmesi gereken hareketlerin log'larının tutulmaması, log'lara kullanıcının ulaşabilmesi ve hangi durumlarda log tutulmadığını keşfedebilmesi, log'ların enkripte edilmemesi vb. durumlar güvenlik açığı oluşturur. Giriş etkinlikleri, doğrulamalar, erişim izinleri vb. etkinliklerin yeterli kullanıcı verisi dahil ederek ve kullanıcıya göstermeden enkripte edilerek kaydedilmesi ile olası saldırılar tespit edilebilir.
+    * **A10:2021 – Sunucu Taraflı Taleplerde Sahtecilik (Server-Side Request Forgery – SSRF)**
+        * Bu önemli olduğu bilinen ama çok vakası görülmeyen bir güvenlik açığı problemidir. Kullanıcıdan gelen URL'lerin kontrol edilmeden veri çekmek için kullanılması durumunda sistemin içine zararlı yazılım göndermekle çalışır. Kullanıcı verilerini harici ağlara göndererek etkisi azaltılabilir. Filtreleme, temizleme yaparak tehlikesi azaltılabilir.
+     
+    * **ASP.NET Core ile alınabilecek önlemler**:
+        * **Model Validation**: Kullanıcıdan gelecek verilerin kurallandırılması ve belirlenen kurallara göre filtrelenmesi anlamına gelir. String uzunluklarını kısıtlama, girdi formatını kısıtlama vb. yöntemlerle injection saldırılarını engellemek için kullanılır.
+        * **Input Sanitization**: XSS saldırıları vb. yöntemlere karşı gelen HTTP isteklerini ve verilerini istenmeyen karakterlere karşı taramak için kullanılır. "<, >, &" gibi kullanıcıdan gelmesi beklenmeyen kod karakterleri tespit edilir.
+        * Bunlar dışında HTTPS zorunluluğu, anlık ileti limiti gibi yöntemler kullanılabilir. Log tutma ve gözlemleme, injection saldırılarına karşı string filtreleme, CSRF korumaları, doğru authentication ve authorization yapma gibi yöntemlerle de güvenlik iyice artırılabilir.
 </details>
 
 
