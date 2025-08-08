@@ -669,7 +669,14 @@ eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9                          #header
 <details>
 <summary>Performans artımı için ne yapılabilir? (AsNoTracking, IAsyncEnumerable, caching, profiling, redis)</summary>
 
-* test
+* **`AsNoTracking`**: AsNoTracking, Entity Framework'te C# ile sorgu yaparken kullanılabilen bir fonksiyondur. Normalde yapılan bütün sorgu satırlarında Entity Framework 'tracking' yapar yani olası bütün değişiklikleri önbellekte kaydeder (caching). Yanına `.AsNoTracking()` eklenen sorgularda ise bu kayıt işlemi yapılmaz. Değişiklik kayıtı tutmayı kapatmanın durumdan duruma değişen iyi ve kötü etkileri olabilir.
+    * Yalnızca okuma yapılacak, bir değişiklik yapılmayacak sorgularda değişiklik kaydı tutmak anlamsızdır. Boşuna hem önbellekte yer tutacak hem de işlem hızını, performansını, büyük ölçüde düşürecektir. Bu yüzden bu tür sorgularda `AsNoTracking()` kullanmak oldukça yararlıdır.
+    * Veritabanında bir değişiklik yapacak bir sorgu işleminde `AsNoTracking()` kullanmak bazen sorun yaratabilir. Geri dönülmesi gereken yanlış bir değişiklik olduğu tespit edilirse, özellikle eski verileri akılda tutmanın olanaksız olduğu senaryolarda (eğer veri çok büyükse vb.), değişiklikleri görüntülemek gerekecektir. Bunun için de 'tracking'e ihtiyaç duyulacaktır. Bu yüzden veritabanında önemli değişiklikler yapan sorgu işlemlerinde *performans kaybı pahasına* 'tracking'i açık bırakmak önemlidir.
+ 
+* **`IEnumerable`**: `IEnumerable` üzerinde döngüyle gezilebilen bir veri setini (liste, dictionary vb.) temsil eder. Senkronize bir şekilde çalışır, yani bir veriye ulaşmadan diğerini talep etmez, dolayısıyla büyük veri setlerinde ya da verilere gecikmeli bir şekilde ulaşılabilen senaryolarda çalışırken oldukça dezavantajlıdır, performans kayıplarına sebep olur.
+* **`IAsyncEnumerable`**: `IEnumerable`dan farklı olarak asenkron şekilde çalışır. Yani bir verinin çağırılması için önceki veriye ulaşılabilmesi önemli değildir. Özellikle büyük veri setlerinde ya da verilere gecikmeli bir şekilde ulaşılabilen senaryolarda oldukça başarılıdır ve performansı artırır.
+
+
 </details>
 
 
