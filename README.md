@@ -728,6 +728,65 @@ eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9                          #header
         * Bunlar dışında HTTPS zorunluluğu, anlık ileti limiti gibi yöntemler kullanılabilir. Log tutma ve gözlemleme, injection saldırılarına karşı string filtreleme, CSRF korumaları, doğru authentication ve authorization yapma gibi yöntemlerle de güvenlik iyice artırılabilir.
 </details>
 
+## 7. Logging ve Hata Yönetimi
+
+<details>
+<summary>Neden loglama yapılır? Log seviyesi nedir?</summary>
+
+* **Neden loglama yapılır?**: Log tutmak, loglama yapmak, programda gerçekleşen adımların gerekli bilgilerle birlikte metin olarak kayıtlarının tutulması demektir. Giriş yapma işlemleri, kullanıcı girdileri, if else zincirleri vb. başarılı çalışması gereken mantık kodlarının kayıtlarının tutulması bu kritik noktalarda oluşabilecek hataların tespitini kolaylaştırır. Log tutmaktaki amaç, programda oluşan sorunların nerede, ne zaman ve nasıl gerçekleştiğini hakkında bilgi sahibi olmaktır. Log tutulan bir programa kıyasla log tutulmayan bir programdaki bir hatayı ve sebebini tespit etmek oldukça zordur.
+
+* **Log seviyesi nedir?**: Log seviyesi, programın sorunlarıyla ilgilenecek kişiler için ikaz niteliği taşıyan durumlarla sıradan durumlar arasında bir hiyerarşi oluşturur. Bir güvenlik açığı, bir saldırı vb. halinde dikkat çekici uyarılar gönderecek, lakin, sıradan bir başarısız giriş durumunda yalnızca kayıt tutmakla kalacak bir sistemdir.
+    * **Log Seviyeleri**:
+        * **TRACE**: Olabilecek en detaylı log seviyesidir. Bir algoritmanın bütün adımları, üçüncü parti kütüphanelerin bütün hareketleri vb. kodla ilgili yaşanan her şeyin izinin sürülebildiği log seviyesidir. Sık kullanılmaz ama ihtiyaç duyulduğu durumlar olabilir.
+        * **DEBUG**: Trace kadar detaylı olmasa da günlük ihtiyaçlardan daha detaylıdır. Daha çok kodlardaki sorunları gidermek için kullanılır. Her detayı değil, yalnızca sorun yapma olanağı yüksek olan kısımların log'larını tutar.
+        * **INFORMATION**: Programın tutacağı standart log seviyesidir. Bir kullanıcının giriş yapması, bir çıktının alınması vb. işlemlerin kayıtlarını tutar. Bakmayınca önemli bir detay kaçırılmayacak işlemlerin log'larını tutar.
+        * **WARNING**: Programın devamlılığını tehdit edecek kadar ciddi olmayan ancak başarısız olmuş işlemlerin kayıtları için kullanılır. Beklenmeyen davranışları bildirir.
+        * **ERROR**: Bir fonksiyonun, programın bir kısmının çalışmaya devam etmemesi gereken durumlarda kullanılır. Örneğin bir ödeme sistemindeki hata için kullanılabilir, programın ilgili modülünün geçici olarak çalışmasını durdurmak için kullanılabilir.
+        * **CRITICAL**: Program için hayati değer taşıyan kısımlardan birisinin çalışmaya devam edemeyeceği durumlarda kullanılır. Örneğin bir veritabanına erişilememesi ya da ödeme işlemlerinin alınamaması gibi durumlar buna örnek olabilir.
+</details>
+
+<details>
+<summary>ASP.NET Core'da logging altyapısı</summary>
+
+* ASP.NET Core'da üç adet logging systemi vardır. Bunlar EventSource, ILogger ve DiagnosticSource'tur.
+    * **EventSource**: .NET Framework 4.5'ten beri vardır. Framework'un kendini izlemesi için kullanılır. Veri önceden belirlenmiş bir formatta kaydedilir ve serileştirilebilir. Kullanılan işletim sistemiyle entegre çalışacak şekilde tasarlanmıştır.
+        * **Serileştirme**: Verinin RAM'de durduğu halinin bir veri formatına dönüştürülebilmesi demektir. 
+    * **ILogger**: ASP.NET Core'da en sık kullanılan logging altyapısıdır. Class'lara bir ILogger oturumu enjekte edip `ILogger.Information()` çağırarak çalıştırılır. Yalnızca string kaydeder.
+    * **DiagnosticSource**: EventSource'a benzer ancak tek farkı verinin belleği terk etmiyor olmasıdır yani serileştirilmesi gerekmez. Ayrıca verilerini ETW (Event Tracking for Windows) formatına çevirecek bir adaptör de bulundurur.
+</details>
+
+<details>
+<summary>Global exception handling nasıl yapılır?</summary>
+
+* **Global Exception Handling**: Sistemde bir yürütme hatası yaşandığında programın davranışlarını belirleyen iş akışına denir. Zaten programın yönelimi belli olmayan hatalar için bir üst çatıdır.
+
+* **Nasıl yapılır?**: ASP.NET Core'da programın başlangıç yapılandırmasına Global Exception Handler Middleware'ı aşağıdaki gibi girilir:
+```
+app.UseExceptionHandler(
+    options =>
+    {
+        options.Run(async context =>
+            {
+                context.Response.StatusCode = (int)HttpStatusCode.BadRequest;
+                context.Response.ContentType = "text/html";
+                var exceptionObject = context.Features.Get<IExceptionHandlerFeature>();
+                if (null != exceptionObject)
+                {
+                    var errorMessage = $"{exceptionObject.Error.Message}";
+                    await context.Response.WriteAsync(errorMessage).ConfigureAwait(false);
+            }});
+    }
+);
+```
+* Uygulamanın pipeline'ına herhangi bir hata oluştuğunda tespit edecek bir modül olan Global Exception Handler'ı eklediğimizde olası bütün hatalar orada işlenecektir.
+</details>
+
+<details>
+<summary>UseExceptionHandler vs ILogger nasıl kullanılır?</summary>
+
+*
+</details>
+
 
 
 
