@@ -784,7 +784,37 @@ app.UseExceptionHandler(
 <details>
 <summary>UseExceptionHandler vs ILogger nasıl kullanılır?</summary>
 
-*
+* **UseExceptionHandler**: Özel bir hata ele alma sayfası oluşturmak için UseExceptionHandler çağırılabilir. UseExceptionHandler ele alınmamış istisnai durumları yakalar ve log'unu tutar. İstisnai duruma sebep olmuş HTTP request'i değiştirip tekrar yollayarak özel hata ekranı oluşturur. Bu sayede bir hatada programı kapanmaktan kurtarır.
+
+    * `Program.cs`'te diğer middleware modüllerden önce yerleştirilir.
+    ```
+    if (!app.Environment.IsDevelopment())
+    {
+        app.UseExceptionHandler("/Home/Error"); // /Home/Error aksiyonuna yönlendirir
+        app.UseHsts();
+    }
+    ```
+    * Talepin gideceği yer bu durumda `/Home/Error` olarak değiştirildi.
+
+* **ILogger**: ASP.NET Core uygulamalarında kullanılan bir log tutma sistemidir. Program çalışırken olanların kaydını bir log'lama framework'üne bağlı kalmadan tutmaya yarar. Log seviyelerini destekler. Seviyelere göre log'lar içinde filtreleme yapabilir. DI (Dependency Injection) yoluyla çalışır.
+```
+public class MyService
+{
+    private readonly ILogger<MyService> _logger;
+
+    public MyService(ILogger<MyService> logger)
+    {
+        _logger = logger;
+    }
+
+    public void Process()
+    {
+        _logger.LogInformation("İşlem {time} tarihinde başladı", DateTime.UtcNow);
+        _logger.LogWarning("Düşük disk alanı tespit edildi");
+        _logger.LogError("Veritabanına bağlanılamadı");
+    }
+}
+```
 </details>
 
 
