@@ -817,6 +817,246 @@ public class MyService
 ```
 </details>
 
+## 8. Yazılım Geliştirme Prensipleri
+
+<details>
+<summary>SOLID Prensipleri:</summary>
+
+* Obje tabanlı dizaynları daha anlaşılabilir, okunabilir, bakım yapılabilir ve esnek kılmayı amaçlayan beş dizayn prensibine verilen addır.
+    * **Single Responsibility Principle**: Her class'ın yalnızca bir sorumluluğu olması gerektiğini savunur. Birden fazla iş yapmak için tek bir class kullanılmaz.
+        * Class'ların tek bir sorumluluğu olduğunda anlamak ve güncellemek daha kolay olur.
+        * Tek bir odağı olan class'lar için test kodları yazmak daha kolay olur.
+        * Class'ın tek odağına yapılan bir değişiklik programın diğer modüllerini etkilemez.
+        ```
+        public class UserService
+        {
+            public void AddUser(string name)
+            {
+                Console.WriteLine($"{name} eklendi.");
+                SendEmail(name);
+            }
+        
+            private void SendEmail(string name)
+            {
+                Console.WriteLine($"{name} için e-posta gönderildi.");
+            }
+        }
+        ```
+        * Bu örnekte bir class hem kullanıcı eklemek hem de eposta göndermek için kullanılıyor. Bu class Tek Sorumluluk Prensibine uymuyor.
+        ```
+        class UserService
+        {
+            public void Add(string n){ Console.WriteLine($"{n} eklendi"); }
+        }
+        class EmailService
+        {
+            public void Send(string to){ Console.WriteLine($"mail -> {to}"); }
+        }
+        ```
+        * Bu şekilde metodları iki ayrı class'a dağıtarak Tek Sorumluluk Prensibine uygun bir kod oluşturduk.
+    * **Open-closed Principle**: Yazılım varlıkları genişletmeye açık olmalı fakat modifikasyona kapalı olmalıdır.
+        * Var olan kodu değiştirmeden eklemeler yapabilme esnekliği sağlar.
+        * Değişiklik yapıldığında bug'ların ortaya çıkma olasılığını düşürür.
+        * Değişen gereksinimlere (SR) daha hızlı adapte olur.
+        ```
+        public class ShapeDrawer
+        {
+            public void DrawShape(string shapeType)
+            {
+                if (shapeType == "Circle")
+                    Console.WriteLine("Çember çizildi.");
+                else if (shapeType == "Square")
+                    Console.WriteLine("Kare çizildi.");
+            }
+        }
+        ```
+        * Bu örnekteki koda yeni bir şekil eklemek istersek kodu değiştirmek durumunda kalacağız. Bu Açık-kapalı Prensibine aykırıdır.
+        ```
+        public abstract class Shape
+        {
+            public abstract void Draw();
+        }
+        
+        public class Circle : Shape
+        {
+            public override void Draw() => Console.WriteLine("Çember çizildi.");
+        }
+        
+        public class Square : Shape
+        {
+            public override void Draw() => Console.WriteLine("Kare çizildi.");
+        }
+        
+        public class ShapeDrawer
+        {
+            public void DrawShape(Shape shape) => shape.Draw();
+        }
+        ```
+        * Şekiller için ayrı class'lar oluşturup Draw metodunu çağırarak, Draw metodunda bir değişiklik yapmadan şekil ekleyebilmeyi sağladık. Bu Açık Kapalı Prensibine uygundur.
+    * **Liskov substitution principle**: Ana class'lara pointer'ı ya da referansı olan class'lar farkına varmadan o class'ların objelerini de kullanabilmelidir.
+        * Kodu daha esnek ve geri dönüştürülebilir yapması için polymorphism kullanılır.
+            * **Polymorphism**: Bir class'ın içindeki metodları altındaki class'ların da kullanabilmesi demektir.
+        * Class'ların üst class'ın kurallarına göre davranarak güvenilir olmalarını sağlar.
+        * Gereksiz bağlılıklardan kurtarır. Kod kullanmadığı metodlara bağlı olmayabilir.
+        ```
+        public class Rectangle
+        {
+            public virtual void SetWidth(int width) { }
+            public virtual void SetHeight(int height) { }
+        }
+        
+        public class Square : Rectangle
+        {
+            public override void SetWidth(int width) { /* mantık bozuluyor */ }
+            public override void SetHeight(int height) { /* mantık bozuluyor */ }
+        }
+        ```
+        * Örnekteki kare class'ı dikdörtgen class'ının alt class'ı halinde fakat bu yaklaşım dikdörtgen class'ının mantığını bozuyor.
+        ```
+        public abstract class Shape
+        {
+            public abstract int Area();
+        }
+        
+        public class Rectangle : Shape
+        {
+            public int Width { get; set; }
+            public int Height { get; set; }
+            public override int Area() => Width * Height;
+        }
+        
+        public class Square : Shape
+        {
+            public int Side { get; set; }
+            public override int Area() => Side * Side;
+        }
+        ```
+        * Bu şekilde şekil çeşitlerini birbirinden ayrı class'lar olarak yazıp hepsini Shape class'ının alt class'ı olarak yazdığımızda Liskov substitution prensibine uygun hale getirmiş oluruz.
+    * **Interface Segregation Principle**: Kullanıcılar kullanmayacakları arayüzleri kullanmak zorunda bırakılmamalıdırlar.
+        * Kodu daha modüler ve kolay güncellenebilir yapar.
+        * Arayüzlerin daha amaçlı yapılmasını sağlar.
+        * Gereksiz bağlılıkları engeller.
+        ```
+        interface ICihaz
+        {
+            void Yazdir();
+            void Tara();
+        }
+        
+        class Yazici : ICihaz
+        {
+            public void Yazdir() => Console.WriteLine("Yazdırıldı");
+            public void Tara() => throw new NotImplementedException(); // ISP’ye aykırı
+        }
+        ```
+        * Bu örnekte bütün yazıcı fonksiyonları için tek bir arayüz kullanılıyor.
+        ```
+        interface IYazdir { void Yazdir(); }
+        interface ITara   { void Tara(); }
+        
+        class Yazici : IYazdir
+        {
+            public void Yazdir() => Console.WriteLine("Yazdırıldı");
+        }
+        
+        class Tarayici : ITara
+        {
+            public void Tara() => Console.WriteLine("Tarandı");
+        }
+        ```
+        * Bu şekilde ikisini ayırarak kullanıcıya sadece istediği fonksiyonun arayüzü sağlanabilir. Bu Arayüz Ayırma Prensibine uyar.
+    * **Dependency Inversion Principle**: Ara bir katman kullanarak üst seviye sınıfların alt seviye sınıflara bağlılığı düzeltilir.
+        * Modüller arası bağlılığı azaltır. Kodu daha esnek yapar ve test yapmayı kolaylaştırır. (Loose Coupling)
+        * Kodu anlamak ve güncellemek daha kolay olur.
+        * Kullanıcılar etkilenmeden kodda değişiklik yapmayı sağlar.
+        ```
+        class Veritabani
+        {
+            public void Kaydet(string veri) => Console.WriteLine($"DB'ye kaydedildi: {veri}");
+        }
+        
+        class KullaniciServisi
+        {
+            private readonly Veritabani _db = new Veritabani(); // doğrudan bağımlılık
+            public void Ekle(string isim) => _db.Kaydet(isim);
+        }
+        ```
+        * Bu örnekte KullaniciServisi class'ı doğrudan Veritabani class'ına bağlı. Eğer sisteme yeni bir veri depolama yöntemi eklemek istersek KullaniciServisi class'ını değiştirmemiz gerekecek.
+        ```
+        interface IVeriDeposu
+        {
+            void Kaydet(string veri);
+        }
+        
+        class Veritabani : IVeriDeposu
+        {
+            public void Kaydet(string veri) => Console.WriteLine($"DB'ye kaydedildi: {veri}");
+        }
+        
+        class KullaniciServisi
+        {
+            private readonly IVeriDeposu _depo;
+            public KullaniciServisi(IVeriDeposu depo) => _depo = depo;
+            public void Ekle(string isim) => _depo.Kaydet(isim);
+        }
+        ```
+        * Burada KullaniciServisi class'ı bir ara katman görevi gören IVeriDeposu arayüzüne bağlı. Bu durumda yeni bir veri depolama yöntemi ekleyecek olursak KullaniciServisi class'ını değiştirmemize gerek kalmaz.
+</details>
+
+<details>
+<summary>Design Patterns: Singleton, repository, factory</summary>
+
+* **Singleton**: Bir yazılım sisteminde bir class'ın yalnızca bir adet kopyasının olması ve bunun global scope'ta çalışması yani her yerden erişilebilmesi demektir. Log tutma sistemleri, config programları vb. yerlerde kullanılır.
+* **Repository**: Veri erişim katmanını soyutlayarak mantık katmanlarının veri depolama sisteminin nasıl çalıştığıyla ilgilenmemesini sağlamaktır. Veriyle ilgili her şeyle ilgilenen, veritabanından ayrı, kodun içindeki bir katman.
+* **Factory**: Nesne oluşturma işlemini merkezi bir noktada ele alan, kullanıcıdan gizleyen, bir tasarım desenidir. Yazılımcı, nesneleri kendi eliyle oluşturmak yerine Factory class'ına gerekli girdiyi vererek istediği nesneyi alır.
+</details>
+
+<details>
+<summary>Clean Code nedir, neden önemlidir?</summary>
+
+* **Clean Code**: Temiz kod; kodu okuyacak diğer insanlar ve gelecekteki kendisi için yazılımcının okunabilir, anlaşılabilir, düzenlenebilir, güncellenebilir kod yazmasına denir. Kod yazma sürecine dair akıla gelebilecek ne varsa kolaylaştırır. Güncelleme, düzenleme, hata bulma, okuma, anlama, ekleme yapma vb. her şey eğer kod temizse daha kolaydır.
+    ```
+    int c; // customer count
+    c = getNumber();
+    ```
+    * Değişken isimlerini anlaşılır yapmamak kötü kod örneğidir.
+    ```
+    int customerCount = getNumber();
+    ```
+    * Bu ise temiz koda örnektir.
+    ```
+    def process_order(order):
+    # siparişi kaydet
+    save_to_database(order)
+    # e-posta gönder
+    send_email(order.customer_email, "Siparişiniz alındı!")
+    ```
+    * Bu fonksiyon kendisinin olmayan bir iş yaptığı için kötü koda örnektir.
+    ```
+    def save_order(order):
+    save_to_database(order)
+
+    def notify_customer(order):
+    send_email(order.customer_email, "Siparişiniz alındı!")
+    ```
+    * Burada ise fonksiyonlar adının belirttiği işi yaptıkları için temiz koddur.
+</details>
+
+<details>
+<summary>Layered, Clean Architecture, Microservices, Event-Driven, Hexagonal Architecture (Ports & Adapters)</summary>
+
+* **Layered Architecture**: Kurulumu ve öğrenmesi kolay, genellikle **tek veritabanı** ve **tek deploy hattı** olan küçük/orta ölçekli projelerde tercih edilir. Katmanlar (Presentation, Business, Data Access) hiyerarşik olarak düzenlenir.
+* **Clean Architecture**: **Karmaşık iş kuralları** ve değişken gereksinimlerde (SR) tercih edilir. Domain merkezde tutulur, dış bağımlılıklar (veritabanı, UI, servisler) port–adaptör mantığıyla ayrılır. Test edilebilirlik ve bağımlılık yönetimi ön plandadır.
+* **Hexagonal Architecture (Ports & Adapters)**: Birden çok **girdi/çıktı kanalı** olan projelerde kullanılır. Domain ile dış dünya arasına port’lar (arayüzler) ve adaptör’lar (uygulamalar) konarak gevşek bağlılık sağlanır.
+* **Mikroservisler**: Tek bir iş alanına odaklanan, **bağımsız olarak deploy edilebilen** küçük servislerdir. Kendi veritabanlarına sahiptirler ve diğer servislerle API veya mesajlaşma ile haberleşirler. Karmaşık ve ölçeklenmesi gereken sistemlerde ekipleri bağımsız çalıştırmak için kullanılır.
+* **Event-Driven Architecture**: Servisler arası iletişim **olaylar** (events) üzerinden yürür. Asenkron çalışır, **loose coupling** ile bağımlılık azaltılır. Bir olay gerçekleştiğinde diğer servisler bu olayı dinleyerek tetiklenir (ör. sipariş → ödeme → kargo).
+</details>
+
+***
+
+* Bu raporu yazmak bana yazılım mühendisliği, yazılım geliştirme prensipleri ve yöntemleri, temel yazılım geliştirme kavramları, yazılım geliştirmede kullanılan araçlar vb. yazılım geliştirme ile ilgili birçok önemli alt dalda çok değerli bilgiler edinmemi sağladı. Bu raporu hazırlarken öğrendiklerimin hayatım boyunca karşıma çıkacağına eminim.
+
+***
 
 
 
