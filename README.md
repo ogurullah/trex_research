@@ -1045,16 +1045,16 @@ public class MyService
 <details>
 <summary>Layered, Clean Architecture, Microservices, Event-Driven, Hexagonal Architecture (Ports & Adapters)</summary>
 
-* **Layered Architecture**: Kurulumu ve öğrenmesi kolay, genellikle **tek veritabanı** ve **tek deploy hattı** olan küçük/orta ölçekli projelerde tercih edilir. Katmanlar (Presentation, Business, Data Access) hiyerarşik olarak düzenlenir.
-* **Clean Architecture**: **Karmaşık iş kuralları** ve değişken gereksinimlerde (SR) tercih edilir. Domain merkezde tutulur, dış bağımlılıklar (veritabanı, UI, servisler) port–adaptör mantığıyla ayrılır. Test edilebilirlik ve bağımlılık yönetimi ön plandadır.
+* **Layered Architecture**: Kurulumu ve öğrenmesi kolay, genellikle **tek veritabanı** ve **tek deploy hattı** olan küçük/orta ölçekli projelerde tercih edilir. Katmanlar (Presentation, Business, Data Access) hiyerarşik olarak düzenlenir. Bundan zaten 4. bölümde bahsetmiştik.
+* **Clean Architecture**: **Karmaşık iş kuralları** ve değişken gereksinimlerde (SR) tercih edilir. Domain merkezde tutulur, dış bağımlılıklar (veritabanı, UI, servisler) port–adaptör mantığıyla ayrılır. Test edilebilirlik ve bağımlılık yönetimi ön plandadır. Bundan da 4. bölümde bahsetmiştik.
 * **Hexagonal Architecture (Ports & Adapters)**: Birden çok **girdi/çıktı kanalı** olan projelerde kullanılır. Domain ile dış dünya arasına port’lar (arayüzler) ve adaptör’lar (uygulamalar) konarak gevşek bağlılık sağlanır.
 * **Mikroservisler**: Tek bir iş alanına odaklanan, **bağımsız olarak deploy edilebilen** küçük servislerdir. Kendi veritabanlarına sahiptirler ve diğer servislerle API veya mesajlaşma ile haberleşirler. Karmaşık ve ölçeklenmesi gereken sistemlerde ekipleri bağımsız çalıştırmak için kullanılır.
-* **Event-Driven Architecture**: Servisler arası iletişim **olaylar** (events) üzerinden yürür. Asenkron çalışır, **loose coupling** ile bağımlılık azaltılır. Bir olay gerçekleştiğinde diğer servisler bu olayı dinleyerek tetiklenir (ör. sipariş → ödeme → kargo).
+* **Event-Driven Architecture**: Servisler arası iletişim **olaylar** (events) üzerinden yürür. Asenkron çalışır, **loose coupling** ile bağımlılık azaltılır. Bir olay gerçekleştiğinde diğer servisler bu olayı dinleyerek tetiklenir.
 </details>
 
 ***
 
-* Bu raporu yazmak bana yazılım mühendisliği, yazılım geliştirme prensipleri ve yöntemleri, temel yazılım geliştirme kavramları, yazılım geliştirmede kullanılan araçlar vb. yazılım geliştirme ile ilgili birçok önemli alt dalda çok değerli bilgiler edinmemi sağladı. Bu raporu hazırlarken öğrendiklerimin hayatım boyunca karşıma çıkacağına eminim.
+* Bu raporu yazmak bana yazılım mühendisliği, yazılım geliştirme prensipleri ve yöntemleri, temel yazılım geliştirme kavramları, yazılım geliştirmede kullanılan araçlar vb. yazılım geliştirme ile ilgili birçok önemli alt dalda çok değerli bilgiler edinmemi sağladı. Bu raporu hazırlarken öğrendiklerimin hayatım boyunca karşıma çıkacağına eminim ve harcadığım emeğe minnettarım.
 
 ***
 
